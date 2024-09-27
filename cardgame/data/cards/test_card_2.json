@@ -1,0 +1,6 @@
+{
+	"name" : "test_card_2",
+	"cost" : 4,
+	"texture" : "res://icon.svg",
+	"ability" : "res://scripts/cards/card_effects/test_card.gd"
+}

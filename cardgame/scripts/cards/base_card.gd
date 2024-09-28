@@ -26,6 +26,7 @@ var texture: Resource:
 		return data["texture"]
 
 var target_position: Vector2
+var sprite_target_position: Vector2
 
 func setup(data: Dictionary):
 	self.data = data
@@ -36,21 +37,37 @@ func setup(data: Dictionary):
 						float(HEIGHT) / sprite.texture.get_height())
 	
 	area = get_node("Area2D")
-	area.connect("input_event", _on_input_event)
+	area.connect("mouse_entered", _on_mouse_entered)
+	area.connect("mouse_exited", _on_mouse_exited)
 	
 	collision_shape = get_node("Area2D/CollisionShape2D")
 	collision_shape.shape.extents.x = WIDTH / 2
 	collision_shape.shape.extents.y = HEIGHT / 2
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
-	# Could process other mouse events, such as when hovering over the card
-	if event is InputEventMouseButton:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			play()
+func _on_mouse_entered():
+	Player.hovered_cards.append(self)
+
+func _on_mouse_exited():
+	Player.hovered_cards.erase(self)
 
 func _process(delta: float):
-	position = lerp(position, target_position, SPEED * delta)
+	var speed = SPEED * delta
+	position = lerp(position, target_position, speed)
+	sprite.position = lerp(sprite.position, sprite_target_position, speed)
+	
+	if Player.hovered_cards and Player.hovered_cards.front() == self:
+		if Input.is_action_just_pressed("left_click"):
+			if not Player.smother_left_click:
+				Player.smother_left_click = true
+				play()
+		
+		sprite_target_position.y = -HEIGHT / 3
+		sprite.rotation_degrees = -rotation_degrees
+	else:
+		sprite_target_position.y = 0
+		sprite.rotation_degrees = 0
 
 func play():
 	Player.hand.erase(self)
+	Player.hovered_cards.erase(self)
 	queue_free()

@@ -16,7 +16,9 @@ func _ready():
 func _load():
 	CardDatabase.load_cards()
 
-func _process(_delta: float):
+func _process(delta: float):
+	Player.process(delta)
+	
 	# NOTE: Temporary code to test adding cards to and removing cards from hand
 	if Input.is_action_just_pressed("up"):
 		Player.hand.add(CardDatabase.create_card("test_card_1"))

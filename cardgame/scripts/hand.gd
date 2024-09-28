@@ -8,20 +8,20 @@ func add(card: BaseCard):
 	if card and len(cards) < MAX_SIZE:
 		Main.INSTANCE.add_child(card)
 		cards.append(card)
-		_draw()
+		draw()
 
 func erase(card: BaseCard):
 	if card:
 		card.queue_free()
 		cards.erase(card)
-		_draw()
+		draw()
 
 func pop():
 	if not cards.is_empty():
 		erase(cards.back())
-		_draw()
+		draw()
 
-func _draw():
+func draw():
 	var width = 0
 	if not cards.is_empty():
 		width = (len(cards) - 1) * BaseCard.WIDTH * 0.65 + BaseCard.WIDTH

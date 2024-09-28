@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://diiw15ga6j62h"]
+
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_uet7q"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_uet7q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="DeckSize" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="DiscardPileSize" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Energy" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

@@ -2,6 +2,8 @@ class_name BaseCard
 
 extends Node2D
 
+const SPEED: int = 8
+
 const WIDTH: int = 136
 const HEIGHT: int = 175
 
@@ -23,6 +25,8 @@ var texture: Resource:
 	get:
 		return data["texture"]
 
+var target_position: Vector2
+
 func setup(data: Dictionary):
 	self.data = data
 	
@@ -43,6 +47,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			play()
+
+func _process(delta: float):
+	position = lerp(position, target_position, SPEED * delta)
 
 func play():
 	Player.hand.erase(self)

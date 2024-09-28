@@ -31,14 +31,14 @@ func _draw():
 	
 	var i = 0
 	for card in cards:
-		card.global_position.x = start_position + BaseCard.WIDTH * i * 0.65
-		card.global_position.y = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+		card.target_position.x = start_position + BaseCard.WIDTH * i * 0.65
+		card.target_position.y = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
 		
 		var middle = (len(cards) - 1) / 2.0
 		var delta = i - middle
 		card.rotation_degrees = delta * 5
 		
 		var dip = sin(deg_to_rad(abs(card.rotation_degrees))) * BaseCard.WIDTH
-		card.global_position.y += pow(dip * 0.25, 1.75)
+		card.target_position.y += pow(dip * 0.25, 1.75)
 		
 		i += 1

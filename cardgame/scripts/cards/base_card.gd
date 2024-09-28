@@ -2,13 +2,16 @@ class_name BaseCard
 
 extends Node2D
 
+const WIDTH: int = 136
+const HEIGHT: int = 175
+
 var sprite: Sprite2D
 var area: Area2D
 var collision_shape: CollisionShape2D
 
 var data: Dictionary
 
-var moniker: String:
+var alias: String:
 	get:
 		return data["name"]
 
@@ -25,13 +28,15 @@ func setup(data: Dictionary):
 	
 	sprite = get_node("Sprite2D")
 	sprite.texture = texture
+	sprite.scale *= min(float(WIDTH) / sprite.texture.get_width(),
+						float(HEIGHT) / sprite.texture.get_height())
 	
 	area = get_node("Area2D")
 	area.connect("input_event", _on_input_event)
 	
 	collision_shape = get_node("Area2D/CollisionShape2D")
-	collision_shape.shape.extents.x = sprite.texture.get_width() / 2
-	collision_shape.shape.extents.y = sprite.texture.get_height() / 2
+	collision_shape.shape.extents.x = WIDTH / 2
+	collision_shape.shape.extents.y = HEIGHT / 2
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	# Could process other mouse events, such as when hovering over the card
@@ -40,4 +45,5 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 			play()
 
 func play():
-	print("Nothing")
+	Player.hand.erase(self)
+	queue_free()

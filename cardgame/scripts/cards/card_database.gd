@@ -1,6 +1,6 @@
 class_name CardDatabase
 
-const DIR_PATH: String = "res://data/cards/"
+const DIR_PATH: String = "res://resources/cards/data/"
 const SCENE: PackedScene = preload("res://scenes/card.tscn")
 
 static var data: Dictionary

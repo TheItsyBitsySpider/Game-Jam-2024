@@ -61,7 +61,10 @@ func _process(delta: float):
 				Player.smother_left_click = true
 				play()
 		
-		sprite_target_position.y = -HEIGHT / 3
+		var screen_size = get_viewport().content_scale_size
+		var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+		var difference = hand_position - position.y
+		sprite_target_position.y = difference - HEIGHT / 4
 		sprite.rotation_degrees = -rotation_degrees
 	else:
 		sprite_target_position.y = 0

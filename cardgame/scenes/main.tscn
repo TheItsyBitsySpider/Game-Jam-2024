@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwnaqo6gicwqi"]
+[gd_scene load_steps=4 format=3 uid="uid://bwnaqo6gicwqi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_adxlg"]
+[ext_resource type="PackedScene" uid="uid://bvchuhk7yo4cu" path="res://scenes/characters/puppet.tscn" id="2_ur6yv"]
+[ext_resource type="PackedScene" uid="uid://c1f42jgkoqngr" path="res://scenes/characters/enemy.tscn" id="3_c7ugy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_adxlg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Puppet" parent="." instance=ExtResource("2_ur6yv")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_c7ugy")]

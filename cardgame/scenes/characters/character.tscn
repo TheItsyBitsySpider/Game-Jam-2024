@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://holib21ftpsf"]
+
+[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_dy24k"]
+[ext_resource type="Texture2D" uid="uid://pvcesoalhx5m" path="res://icon.svg" id="2_euoa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbe7j"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_dy24k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_euoa6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dbe7j")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.5
+offset_top = 72.0
+offset_right = 18.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Alias"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

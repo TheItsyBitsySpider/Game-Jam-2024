@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvchuhk7yo4cu"]
+
+[ext_resource type="Script" path="res://scripts/characters/puppet.gd" id="1_0m34e"]
+[ext_resource type="PackedScene" uid="uid://holib21ftpsf" path="res://scenes/characters/character.tscn" id="2_udamy"]
+
+[node name="Puppet" type="Node2D"]
+script = ExtResource("1_0m34e")
+
+[node name="Character" parent="." instance=ExtResource("2_udamy")]

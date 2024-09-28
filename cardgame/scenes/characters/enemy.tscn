@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1f42jgkoqngr"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_d78xy"]
+[ext_resource type="PackedScene" uid="uid://holib21ftpsf" path="res://scenes/characters/character.tscn" id="2_p1bbq"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_d78xy")
+
+[node name="Character" parent="." instance=ExtResource("2_p1bbq")]

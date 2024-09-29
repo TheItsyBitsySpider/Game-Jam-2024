@@ -14,6 +14,7 @@ func add(card: BaseCard):
 func erase(card: BaseCard):
 	if card:
 		Main.INSTANCE.remove_child(card)
+		Player.hovered_cards.erase(card)
 		cards.erase(card)
 		draw()
 

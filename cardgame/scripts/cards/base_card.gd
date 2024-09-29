@@ -61,33 +61,40 @@ func _process(delta: float):
 							speed / 2)
 	
 	if not Player.dragged_card:
-		if Player.hovered_cards and Player.hovered_cards.front() == self:
-			if Input.is_action_pressed("left_click"):
-				if not Player.smother_left_click:
-					rotation_degrees_before_dragging = target_rotation_degrees
-					target_rotation_degrees = 0
-					rotation_degrees = 0
-					sprite.rotation_degrees = 0
-					Player.smother_left_click = true
-					Player.dragged_card = self
-					return
+		if Player.hovered_cards:
+			var hovered_card = Player.hovered_cards.front()
+			for card in Player.hovered_cards:
+				if card.position.x > hovered_card.position.x:
+					hovered_card = card
 			
-			var screen_size = get_viewport().content_scale_size
-			var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
-			var difference = hand_position - position.y
-			sprite_target_position.x = 0
-			sprite_target_position.y = difference - HEIGHT / 4
-			sprite.rotation_degrees = -rotation_degrees
-		else:
-			sprite_target_position.x = 0
-			sprite_target_position.y = 0
-			sprite.rotation_degrees = 0
+			if hovered_card == self:
+				if Input.is_action_pressed("left_click"):
+					if not Player.smother_left_click:
+						rotation_degrees_before_dragging = target_rotation_degrees
+						target_rotation_degrees = 0
+						rotation_degrees = 0
+						sprite.rotation_degrees = 0
+						Player.smother_left_click = true
+						Player.dragged_card = self
+						return
+				
+				var screen_size = get_viewport().content_scale_size
+				var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+				var difference = hand_position - position.y
+				sprite_target_position.x = 0
+				sprite_target_position.y = difference - HEIGHT / 4
+				sprite.rotation_degrees = -rotation_degrees
+				
+				return
+		
+		sprite_target_position.x = 0
+		sprite_target_position.y = 0
+		sprite.rotation_degrees = 0
 
 func play(_character: Node2D) -> bool:
 	var puppet = Main.battle.puppet
 	if cost <= puppet.current_energy:
 		puppet.current_energy -= cost
 		Player.discard_card(self)
-		Player.hovered_cards.erase(self)
 		return true
 	return false

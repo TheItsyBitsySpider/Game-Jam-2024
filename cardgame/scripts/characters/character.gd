@@ -9,6 +9,8 @@ const SCENE: PackedScene = preload("res://scenes/characters/character.tscn")
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var label: RichTextLabel = $RichTextLabel
 
+signal is_dead
+
 var _alias: String
 var alias: String:
 	get:
@@ -23,6 +25,8 @@ var current_health: int:
 		return _current_health
 	set(val):
 		_current_health = val
+		if _current_health <= 0:
+			is_dead.emit()
 		_update_label()
 
 var _total_health: int
@@ -38,8 +42,12 @@ var defense: int:
 	get:
 		return _defense
 	set(val):
-		_defense = val
+		_defense = clamp(val, 0, INF)
 		_update_label()
+
+func attacked(amount: int):
+	current_health -= clamp((amount - defense), 0, INF)
+	defense -= amount
 
 func _update_label():
 	label.text = '\n'.join([

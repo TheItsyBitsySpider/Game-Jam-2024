@@ -3,7 +3,32 @@
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_d78xy"]
 [ext_resource type="PackedScene" uid="uid://holib21ftpsf" path="res://scenes/characters/character.tscn" id="2_p1bbq"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["Enemy"]]
 script = ExtResource("1_d78xy")
 
 [node name="Character" parent="." instance=ExtResource("2_p1bbq")]
+
+[node name="UpcomingTurnSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -88.075)
+scale = Vector2(55.5, 35.5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = -140.0
+offset_right = 28.0
+offset_bottom = -106.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_separation = -6
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

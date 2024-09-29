@@ -4,6 +4,7 @@ static var deck: Array[BaseCard]
 static var hand: Hand = Hand.new()
 static var hovered_cards: Array[BaseCard]
 static var hovered_enemy: Node2D
+static var hovered_puppet: Node2D
 static var dragged_card: BaseCard
 
 static var draw_size: int
@@ -27,6 +28,8 @@ static func process(_delta: float):
 			dragged_card.target_rotation_degrees = rotation_degrees
 			if hovered_enemy:
 				dragged_card.play(hovered_enemy)
+			if hovered_puppet:
+				dragged_card.play(hovered_puppet)
 			dragged_card = null
 			return
 		

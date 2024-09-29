@@ -9,6 +9,7 @@ static var dragged_card: BaseCard
 
 static var draw_size: int
 
+static var can_play: bool = true
 static var smother_left_click: bool = false
 
 static func setup():
@@ -26,10 +27,11 @@ static func process(_delta: float):
 		if not Input.is_action_pressed("left_click"):
 			var rotation_degrees = dragged_card.rotation_degrees_before_dragging
 			dragged_card.target_rotation_degrees = rotation_degrees
-			if hovered_enemy:
-				dragged_card.play(hovered_enemy)
-			if hovered_puppet:
-				dragged_card.play(hovered_puppet)
+			if can_play:
+				if hovered_enemy:
+					dragged_card.play(hovered_enemy)
+				if hovered_puppet:
+					dragged_card.play(hovered_puppet)
 			dragged_card = null
 			return
 		

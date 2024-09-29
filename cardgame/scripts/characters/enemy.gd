@@ -51,9 +51,11 @@ func ping():
 	
 	character.defense = 0
 	
+	Player.can_play = false
 	while Player.hand.cards:
 		await get_tree().create_timer(0.1).timeout
 		Player.discard_card(Player.hand.cards.back())
+	Player.can_play = true
 	
 	upcoming_action.action.call()
 	

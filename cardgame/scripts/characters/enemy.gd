@@ -11,10 +11,21 @@ func _ready():
 	character.current_health = 12
 	character.total_health = 12
 	
+	character.area.connect("mouse_entered", _on_mouse_entered)
+	character.area.connect("mouse_exited", _on_mouse_exited)
+	
 	var screen_size = get_viewport().content_scale_size
 	position.x = screen_size.x / 4
 
+func _on_mouse_entered():
+	Player.hovered_enemy = self
+
+func _on_mouse_exited():
+	Player.hovered_enemy = null
+
 func ping():
-	for card in Player.hand.cards:
+	Main.battle.end_turn_button.disabled = true
+	
+	while Player.hand.cards:
 		await get_tree().create_timer(0.1).timeout
-		Player.hand.erase(card)
+		Player.discard_card(Player.hand.cards.back())

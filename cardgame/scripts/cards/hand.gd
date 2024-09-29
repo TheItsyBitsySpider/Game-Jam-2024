@@ -7,12 +7,13 @@ var cards: Array[BaseCard]
 func add(card: BaseCard):
 	if card and len(cards) < MAX_SIZE:
 		Main.INSTANCE.add_child(card)
+		card.position = Vector2.ZERO
 		cards.append(card)
 		draw()
 
 func erase(card: BaseCard):
 	if card:
-		card.queue_free()
+		Main.INSTANCE.remove_child(card)
 		cards.erase(card)
 		draw()
 
@@ -36,9 +37,10 @@ func draw():
 		
 		var middle = (len(cards) - 1) / 2.0
 		var delta = i - middle
-		card.rotation_degrees = delta * 5
+		card.target_rotation_degrees = delta * 5
 		
-		var dip = sin(deg_to_rad(abs(card.rotation_degrees))) * BaseCard.WIDTH
+		var alpha = deg_to_rad(abs(card.target_rotation_degrees))
+		var dip = sin(alpha) * BaseCard.WIDTH
 		card.target_position.y += pow(dip * 0.25, 1.75)
 		
 		i += 1

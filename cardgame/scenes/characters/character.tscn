@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_dy24k"]
 [ext_resource type="Texture2D" uid="uid://pvcesoalhx5m" path="res://icon.svg" id="2_euoa6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbe7j"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4udb"]
+radius = 84.0
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_dy24k")
@@ -14,7 +15,7 @@ texture = ExtResource("2_euoa6")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_dbe7j")
+shape = SubResource("CircleShape2D_s4udb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false

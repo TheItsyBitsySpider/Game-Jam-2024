@@ -1,6 +1,0 @@
-{
-	"name" : "test_card_2",
-	"cost" : 4,
-	"texture" : "res://resources/cards/textures/placeholder.png",
-	"ability" : "res://scripts/cards/card_effects/test_card.gd"
-}

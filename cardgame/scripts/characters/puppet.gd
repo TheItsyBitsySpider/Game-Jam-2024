@@ -38,6 +38,11 @@ func _ready():
 	position.x = -screen_size.x / 4
 
 func ping():
+	Main.battle.end_turn_button.disabled = false
+	
+	character.defense = 0
+	current_energy = total_energy
+	
 	for i in range(Player.draw_size):
 		await get_tree().create_timer(0.1).timeout
 		Player.draw_card()

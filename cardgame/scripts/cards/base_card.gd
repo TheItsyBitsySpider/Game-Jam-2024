@@ -27,6 +27,9 @@ var texture: Resource:
 
 var target_position: Vector2
 var sprite_target_position: Vector2
+var target_rotation_degrees: float
+
+var rotation_degrees_before_dragging: float
 
 func setup(data: Dictionary):
 	self.data = data
@@ -54,23 +57,37 @@ func _process(delta: float):
 	var speed = SPEED * delta
 	position = lerp(position, target_position, speed)
 	sprite.position = lerp(sprite.position, sprite_target_position, speed)
+	rotation_degrees = lerp(rotation_degrees, target_rotation_degrees,
+							speed / 2)
 	
-	if Player.hovered_cards and Player.hovered_cards.front() == self:
-		if Input.is_action_just_pressed("left_click"):
-			if not Player.smother_left_click:
-				Player.smother_left_click = true
-				play()
-		
-		var screen_size = get_viewport().content_scale_size
-		var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
-		var difference = hand_position - position.y
-		sprite_target_position.y = difference - HEIGHT / 4
-		sprite.rotation_degrees = -rotation_degrees
-	else:
-		sprite_target_position.y = 0
-		sprite.rotation_degrees = 0
+	if not Player.dragged_card:
+		if Player.hovered_cards and Player.hovered_cards.front() == self:
+			if Input.is_action_pressed("left_click"):
+				if not Player.smother_left_click:
+					rotation_degrees_before_dragging = target_rotation_degrees
+					target_rotation_degrees = 0
+					rotation_degrees = 0
+					sprite.rotation_degrees = 0
+					Player.smother_left_click = true
+					Player.dragged_card = self
+					return
+			
+			var screen_size = get_viewport().content_scale_size
+			var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+			var difference = hand_position - position.y
+			sprite_target_position.x = 0
+			sprite_target_position.y = difference - HEIGHT / 4
+			sprite.rotation_degrees = -rotation_degrees
+		else:
+			sprite_target_position.x = 0
+			sprite_target_position.y = 0
+			sprite.rotation_degrees = 0
 
-func play():
-	Player.hand.erase(self)
-	Player.hovered_cards.erase(self)
-	queue_free()
+func play(_character: Node2D) -> bool:
+	var puppet = Main.battle.puppet
+	if cost <= puppet.current_energy:
+		puppet.current_energy -= cost
+		Player.discard_card(self)
+		Player.hovered_cards.erase(self)
+		return true
+	return false

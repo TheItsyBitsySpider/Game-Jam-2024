@@ -85,11 +85,15 @@ func _process(delta: float):
 				sprite_target_position.y = difference - HEIGHT / 4
 				sprite.rotation_degrees = -rotation_degrees
 				
+				z_index = 1
+				
 				return
 		
 		sprite_target_position.x = 0
 		sprite_target_position.y = 0
 		sprite.rotation_degrees = 0
+		
+		z_index = 0
 
 func play(_character: Node2D) -> bool:
 	var puppet = Main.battle.puppet

@@ -2,5 +2,5 @@
 	"name" : "defend",
 	"cost" : 1,
 	"texture" : "res://resources/cards/textures/defend.png",
-	"ability" : "res://scripts/cards/card_effects/strike.gd"
+	"ability" : "res://scripts/cards/card_effects/defend.gd"
 }

@@ -1,9 +1,9 @@
-class_name StrikeCard
+class_name DefendCard
 
 extends BaseCard
 
 func play(character: Node2D):
-	if character is Enemy:
+	if character is Puppet:
 		var played = super(character)
 		if played:
-			character.character.current_health -= 6
+			character.character.defense += 6

@@ -6,4 +6,4 @@ func play(character: Node2D):
 	if character is Enemy:
 		var played = super(character)
 		if played:
-			character.character.attacked(6)
+			character.character.hit(6)

@@ -34,12 +34,17 @@ func _ready():
 	current_energy = 3
 	total_energy = 3
 	
+	character.connect("slain", _on_slain)
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
-	character.connect("is_dead", _on_death)
 	
 	var screen_size = get_viewport().content_scale_size
 	position.x = -screen_size.x / 4
+
+func _on_slain():
+	# TODO: Game over screen
+	print("Game over.")
+	queue_free()
 
 func _on_mouse_entered():
 	Player.hovered_puppet = self
@@ -47,18 +52,13 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	Player.hovered_puppet = null
 
-func _on_death():
-	# Should be replaced later with a game over screen'
-	print("Game Over...")
-	queue_free()
-
 func ping():
 	Main.battle.end_turn_button.disabled = false
 	
 	character.defense = 0
 	current_energy = total_energy
 	
-	get_tree().call_group("Enemy", "pick_attack")
+	get_tree().call_group("enemy", "determine_intent")
 	
 	for i in range(Player.draw_size):
 		await get_tree().create_timer(0.1).timeout

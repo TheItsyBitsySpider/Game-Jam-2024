@@ -46,8 +46,10 @@ func setup():
 
 func _on_slain():
 	# TODO: Animation and transition to non-combat scene
+	Main.battle.erase_combatant(self)
+	if self == Player.hovered_enemy:
+		Player.hovered_enemy = null
 	queue_free()
-	print("Victory.")
 
 func _on_mouse_entered():
 	Player.hovered_enemy = self

@@ -67,22 +67,23 @@ func _process(delta: float):
 				if card.position.x > hovered_card.position.x:
 					hovered_card = card
 			
-			if hovered_card == self:
+			if hovered_card == self and Player.hand.interactable:
 				if Input.is_action_pressed("left_click"):
 					if not Player.smother_left_click:
-						rotation_degrees_before_dragging = target_rotation_degrees
-						target_rotation_degrees = 0
+						var hold_rotation_degrees = target_rotation_degrees
+						rotation_degrees_before_dragging = hold_rotation_degrees
+						
 						rotation_degrees = 0
+						target_rotation_degrees = 0
 						sprite.rotation_degrees = 0
+						
 						Player.smother_left_click = true
 						Player.dragged_card = self
+						
 						return
 				
-				var screen_size = get_viewport().content_scale_size
-				var hand_position = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
-				var difference = hand_position - position.y
 				sprite_target_position.x = 0
-				sprite_target_position.y = difference - HEIGHT / 4
+				sprite_target_position.y = -HEIGHT / 4
 				sprite.rotation_degrees = -rotation_degrees
 				
 				z_index = 1
@@ -96,7 +97,7 @@ func _process(delta: float):
 		z_index = 0
 
 func play(_character: Node2D) -> bool:
-	var puppet = Main.battle.puppet
+	var puppet = Main.puppet
 	if cost <= puppet.current_energy:
 		puppet.current_energy -= cost
 		Player.discard_card(self)

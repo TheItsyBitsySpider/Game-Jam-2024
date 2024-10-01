@@ -39,8 +39,7 @@ func _ready():
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
 	
-	var screen_size = get_viewport().content_scale_size
-	position.x = -screen_size.x / 4
+	position.x = -Main.screen_size.x / 4
 
 func _on_slain():
 	# TODO: Game over screen

@@ -4,7 +4,21 @@ extends Node2D
 
 static var INSTANCE: Main
 
-static var battle: Battle
+@onready var camera: Camera = $Camera2D
+
+static var screen_size: Vector2:
+	get:
+		return INSTANCE.get_viewport().content_scale_size
+
+static var act: Act
+
+static var puppet: Puppet:
+	get:
+		return act.puppet if act else null
+
+static var battle: Battle:
+	get:
+		return act.battle if act else null
 
 func _init():
 	INSTANCE = self
@@ -14,8 +28,9 @@ func _ready():
 	
 	Player.setup()
 	
-	battle = Battle.SCENE.instantiate() as Battle
-	add_child(battle)
+	act = Act.SCENE.instantiate()
+	add_child(act)
+	act.start_battle()
 
 func _load():
 	CardDatabase.load_cards()

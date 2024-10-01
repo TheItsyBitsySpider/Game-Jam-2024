@@ -3,8 +3,8 @@ class_name Hand
 extends Node2D
 
 const MAX_SIZE: int = 10
-const SPEED: float = 5
-const TARGET_DISTANCE: float = 50
+const SPEED: float = 4
+const TARGET_DISTANCE: float = 10
 
 var cards: Array[BaseCard]
 
@@ -22,8 +22,8 @@ var interactable: bool:
 signal stabilized
 
 func _ready():
-	position.y = Main.screen_size.y
-	target_position.y = Main.screen_size.y
+	position.y = Main.screen_size.y / 2 + BaseCard.HEIGHT / 2
+	target_position.y = position.y
 
 func _process(delta: float):
 	var speed = SPEED * delta
@@ -34,12 +34,13 @@ func _process(delta: float):
 
 func pull_up():
 	interactable = true
-	target_position.y = Main.screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+	position.y = Main.screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+	target_position.y = position.y
 	draw()
 
 func pull_down():
 	interactable = false
-	target_position.y = Main.screen_size.y
+	target_position.y = Main.screen_size.y / 2 + BaseCard.HEIGHT / 2
 	draw()
 
 func add(card: BaseCard):

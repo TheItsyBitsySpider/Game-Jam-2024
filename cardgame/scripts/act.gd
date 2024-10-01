@@ -44,7 +44,6 @@ func _process(delta: float):
 func start_battle():
 	in_battle = true
 	Player.hand.pull_up()
-	await Player.hand.stabilized
 	battle = Battle.SCENE.instantiate() as Battle
 	add_child(battle)
 

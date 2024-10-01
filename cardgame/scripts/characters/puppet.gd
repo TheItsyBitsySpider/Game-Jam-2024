@@ -28,8 +28,8 @@ var total_energy: int:
 
 func _ready():
 	character.alias = "Puppet"
-	character.current_health = 50
-	character.total_health = 50
+	character.current_health = 80
+	character.total_health = 80
 	
 	current_energy = 3
 	total_energy = 3
@@ -38,8 +38,7 @@ func _ready():
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
 	
-	var screen_size = get_viewport().content_scale_size
-	position.x = -screen_size.x / 4
+	position.x = -Main.screen_size.x / 4
 
 func _on_slain():
 	# TODO: Game over screen

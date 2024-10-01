@@ -21,20 +21,19 @@ func _ready():
 	character.total_health = 24
 	
 	# TODO: Enemy JSON database
-	actions.append(EnemyAction.new("attack", 32, Main.battle.puppet))
+	actions.append(EnemyAction.new("attack", 32, Main.puppet))
 	actions.append(EnemyAction.new("defend", 10, self))
 	
 	character.connect("slain", _on_slain)
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
-	
-	var screen_size = get_viewport().content_scale_size
-	position.x = screen_size.x / 4
 
 func _on_slain():
 	# TODO: Animation and transition to non-combat scene
+	Main.battle.erase_combatant(self)
+	if self == Player.hovered_enemy:
+		Player.hovered_enemy = null
 	queue_free()
-	print("Victory.")
 
 func _on_mouse_entered():
 	Player.hovered_enemy = self

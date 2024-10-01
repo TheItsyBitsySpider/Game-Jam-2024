@@ -15,10 +15,6 @@ var discard: Array[BaseCard]
 var turn_order: Array[Node2D]
 var turn: int
 
-var puppet: Puppet:
-	get:
-		return turn_order.front()
-
 func _init():
 	_shuffle_deck(Player.deck)
 
@@ -38,10 +34,15 @@ func _ready():
 	_update_deck_label()
 	_update_discard_label()
 	
-	var characters = [Puppet.SCENE.instantiate(), Enemy.SCENE.instantiate()]
+	var enemy = Enemy.SCENE.instantiate()
+	enemy.position.x = Main.puppet.position.x + Main.screen_size.x / 2
+	
+	var characters = [enemy]
 	for character in characters:
 		turn_order.append(character)
 		add_child(character)
+	
+	turn_order.push_front(Main.act.puppet)
 	turn_order.front().ping()
 
 func _on_end_turn_button_pressed():
@@ -50,6 +51,11 @@ func _on_end_turn_button_pressed():
 func next_turn():
 	turn = (turn + 1) % len(turn_order)
 	turn_order[turn].ping()
+
+func erase_combatant(character: Node2D):
+	turn_order.erase(character)
+	if turn_order.size() == 1:
+		Main.act.end_battle()
 
 func _update_deck_label():
 	deck_label.text = ' '.join(["Deck:", len(deck)])

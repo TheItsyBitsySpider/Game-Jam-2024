@@ -18,6 +18,8 @@ static func setup():
 	for i in range(5):
 		deck.append(CardDatabase.create_card("defend"))
 	
+	Main.INSTANCE.add_child(hand)
+	
 	draw_size = 5
 
 static func process(_delta: float):
@@ -36,7 +38,7 @@ static func process(_delta: float):
 			return
 		
 		var mouse_position = Main.INSTANCE.get_local_mouse_position()
-		var delta = mouse_position - dragged_card.position
+		var delta = mouse_position - hand.position - dragged_card.position
 		dragged_card.sprite_target_position = delta
 
 static func draw_card():

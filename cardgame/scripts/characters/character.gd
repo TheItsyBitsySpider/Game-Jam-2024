@@ -4,6 +4,8 @@ extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/characters/character.tscn")
 
+@export var override_texture: Resource
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var area: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
@@ -44,6 +46,10 @@ var defense: int:
 	set(val):
 		_defense = clamp(val, 0, INF)
 		_update_label()
+
+func _ready():
+	if override_texture:
+		sprite.texture = override_texture
 
 func hit(damage: int):
 	current_health -= clamp((damage - defense), 0, INF)

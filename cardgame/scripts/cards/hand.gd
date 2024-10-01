@@ -1,19 +1,59 @@
 class_name Hand
 
+extends Node2D
+
 const MAX_SIZE: int = 10
+const SPEED: float = 5
+const TARGET_DISTANCE: float = 50
 
 var cards: Array[BaseCard]
 
+var target_position: Vector2
+
+var _interactable: bool = false
+var interactable: bool:
+	get:
+		return _interactable
+	set(val):
+		Player.hovered_cards = []
+		Player.dragged_card = null
+		_interactable = val
+
+signal stabilized
+
+func _ready():
+	position.y = Main.screen_size.y
+	target_position.y = Main.screen_size.y
+
+func _process(delta: float):
+	var speed = SPEED * delta
+	if position != target_position:
+		position = lerp(position, target_position, speed)
+		if position.distance_to(target_position) <= TARGET_DISTANCE:
+			stabilized.emit()
+
+func pull_up():
+	interactable = true
+	target_position.y = Main.screen_size.y / 2 - BaseCard.HEIGHT / 2.25
+	draw()
+
+func pull_down():
+	interactable = false
+	target_position.y = Main.screen_size.y
+	draw()
+
 func add(card: BaseCard):
 	if card and len(cards) < MAX_SIZE:
-		Main.INSTANCE.add_child(card)
-		card.position = Vector2.ZERO
+		add_child(card)
+		card.position.x = 0
+		card.global_position.y = 0
+		card.target_position = card.position
 		cards.append(card)
 		draw()
 
 func erase(card: BaseCard):
 	if card:
-		Main.INSTANCE.remove_child(card)
+		remove_child(card)
 		Player.hovered_cards.erase(card)
 		if card == Player.dragged_card:
 			Player.dragged_card = null
@@ -30,13 +70,11 @@ func draw():
 	if not cards.is_empty():
 		width = (len(cards) - 1) * BaseCard.WIDTH * 0.65 + BaseCard.WIDTH
 	
-	var screen_size = Main.INSTANCE.get_viewport().content_scale_size
 	var start_position = BaseCard.WIDTH / 2 - width / 2
 	
 	var i = 0
 	for card in cards:
 		card.target_position.x = start_position + BaseCard.WIDTH * i * 0.65
-		card.target_position.y = screen_size.y / 2 - BaseCard.HEIGHT / 2.25
 		
 		var middle = (len(cards) - 1) / 2.0
 		var delta = i - middle
@@ -44,6 +82,6 @@ func draw():
 		
 		var alpha = deg_to_rad(abs(card.target_rotation_degrees))
 		var dip = sin(alpha) * BaseCard.WIDTH
-		card.target_position.y += pow(dip * 0.25, 1.75)
+		card.target_position.y = pow(dip * 0.25, 1.75)
 		
 		i += 1

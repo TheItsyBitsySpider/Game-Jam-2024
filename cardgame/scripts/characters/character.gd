@@ -45,6 +45,16 @@ var defense: int:
 		_defense = clamp(val, 0, INF)
 		_update_label()
 
+var _strength: int
+var strength: int:
+	get:
+		return _strength
+	set(val):
+		# Can have negative strength as a potential debuff
+		_strength = val
+		# TODO change strength & other buffs to be a symbol like in Slay the Spire
+		_update_label()
+
 func hit(damage: int):
 	current_health -= clamp((damage - defense), 0, INF)
 	defense -= damage
@@ -53,4 +63,5 @@ func _update_label():
 	label.text = '\n'.join([
 		' '.join(["[center]", alias]),
 		' '.join(["HP:", current_health, "/", total_health]),
-		' '.join(["Defense:", defense])])
+		' '.join(["Defense:", defense]),
+		' '.join(["Strength:", strength])])

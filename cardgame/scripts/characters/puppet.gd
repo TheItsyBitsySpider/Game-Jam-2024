@@ -30,6 +30,7 @@ func _ready():
 	character.alias = "Puppet"
 	character.current_health = 50
 	character.total_health = 50
+	character.strength = 0
 	
 	current_energy = 3
 	total_energy = 3

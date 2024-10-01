@@ -1,0 +1,10 @@
+{
+	"name" : "AggressiveEnemy",
+	"texture" : "res://icon.svg",
+	"random_actions" : false,
+	"health" : 36,
+	"action_list" : [
+		["attack", 5, "puppet"],
+		["buff_attack", 3, "self"]
+	]
+}

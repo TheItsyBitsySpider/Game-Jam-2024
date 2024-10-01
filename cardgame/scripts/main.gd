@@ -19,6 +19,7 @@ func _ready():
 
 func _load():
 	CardDatabase.load_cards()
+	EnemyDatabase.load_enemies()
 
 func _process(delta: float):
 	Player.process(delta)

@@ -15,21 +15,34 @@ const DEFEND_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "defend.png")
 var actions: Array[EnemyAction]
 var upcoming_action: EnemyAction
 
+var random_actions: bool
+var data: Dictionary
+var action_index: int
+
 func _ready():
-	character.alias = "Enemy"
-	character.current_health = 24
-	character.total_health = 24
-	
-	# TODO: Enemy JSON database
-	actions.append(EnemyAction.new("attack", 32, Main.battle.puppet))
-	actions.append(EnemyAction.new("defend", 10, self))
-	
+	setup()
 	character.connect("slain", _on_slain)
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
 	
 	var screen_size = get_viewport().content_scale_size
 	position.x = screen_size.x / 4
+	action_index = 0
+
+func setup():
+	var viable_targets = {
+		"self" : self,
+		"puppet" : Main.battle.puppet
+	}
+	character.current_health = data["health"]
+	character.total_health = data["health"]
+	character.sprite.texture = data["texture"]
+	character.alias = data["name"]
+	character.strength = 0
+	random_actions = data["random_actions"]
+	
+	for action in data["action_list"]:
+		actions.append(EnemyAction.new(action[0], action[1], viable_targets[action[2]], character))
 
 func _on_slain():
 	# TODO: Animation and transition to non-combat scene
@@ -43,7 +56,11 @@ func _on_mouse_exited():
 	Player.hovered_enemy = null
 
 func determine_intent():
-	upcoming_action = actions.pick_random()
+	if random_actions:
+		upcoming_action = actions.pick_random()
+	else:
+		upcoming_action = actions[action_index % len(actions)]
+		action_index += 1
 	update_intent_label()
 
 func ping():

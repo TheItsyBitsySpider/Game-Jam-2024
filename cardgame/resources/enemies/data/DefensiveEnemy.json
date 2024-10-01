@@ -1,0 +1,11 @@
+{
+	"name" : "DefensiveEnemy",
+	"texture" : "res://resources/enemies/textures/Shield_Gremlin.png",
+	"random_actions" : true,
+	"health" : 36,
+	"action_list" : [
+		["defend", 12, "self"],
+		["defend", 12, "self"],
+		["attack", 8, "puppet"]
+	]
+}

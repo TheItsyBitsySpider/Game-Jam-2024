@@ -38,7 +38,7 @@ func _ready():
 	_update_deck_label()
 	_update_discard_label()
 	
-	var characters = [Puppet.SCENE.instantiate(), Enemy.SCENE.instantiate()]
+	var characters = [Puppet.SCENE.instantiate(), EnemyDatabase.create_enemy("AggressiveEnemy")]
 	for character in characters:
 		turn_order.append(character)
 		add_child(character)

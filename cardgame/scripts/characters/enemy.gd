@@ -7,6 +7,7 @@ const SCENE: PackedScene = preload("res://scenes/characters/enemy.tscn")
 const INTENT_DIR_PATH: String = "res://resources/intents/textures/"
 const ATTACK_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "attack.png")
 const DEFEND_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "defend.png")
+const BUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "buff.png")
 
 @onready var character: Character = $Character
 @onready var intent_sprite: Sprite2D = $UpcomingTurnSprite
@@ -95,3 +96,5 @@ func update_intent_label():
 		intent_text.text = "[center]" + str(upcoming_damage)
 	elif action.get_method() == "defend":
 		intent_sprite.texture = DEFEND_INTENT_TEXTURE
+	elif action.get_method() == "buff_attack":
+		intent_sprite.texture = BUFF_INTENT_TEXTURE

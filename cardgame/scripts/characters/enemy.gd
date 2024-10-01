@@ -14,35 +14,39 @@ const DEFEND_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "defend.png")
 
 var actions: Array[EnemyAction]
 var upcoming_action: EnemyAction
+var action_index: int = 0
 
-var random_actions: bool
 var data: Dictionary
-var action_index: int
+
+var random_actions: bool:
+	get:
+		return data["random_actions"]
 
 func _ready():
 	setup()
+	
 	character.connect("slain", _on_slain)
 	character.area.connect("mouse_entered", _on_mouse_entered)
 	character.area.connect("mouse_exited", _on_mouse_exited)
-	
-	var screen_size = get_viewport().content_scale_size
-	position.x = screen_size.x / 4
-	action_index = 0
 
 func setup():
 	var viable_targets = {
-		"self" : self,
-		"puppet" : Main.battle.puppet
+		"self": self,
+		"puppet": Main.puppet
 	}
+	
+	character.alias = data["name"]
 	character.current_health = data["health"]
 	character.total_health = data["health"]
-	character.sprite.texture = data["texture"]
-	character.alias = data["name"]
-	character.strength = 0
-	random_actions = data["random_actions"]
 	
-	for action in data["action_list"]:
-		actions.append(EnemyAction.new(action[0], action[1], viable_targets[action[2]], character))
+	character.sprite.texture = data["texture"]
+	
+	for action in data["actions"]:
+		var type = action[0]
+		var amount = action[1]
+		var target = viable_targets[action[2]]
+		var stats = character
+		actions.append(EnemyAction.new(type, amount, target, stats))
 
 func _on_slain():
 	# TODO: Animation and transition to non-combat scene
@@ -86,7 +90,8 @@ func update_intent_label():
 	
 	var action = upcoming_action.action
 	if action.get_method() == "attack":
+		var upcoming_damage = upcoming_action.amount + character.strength
 		intent_sprite.texture = ATTACK_INTENT_TEXTURE
-		intent_text.text = "[center]" + str(upcoming_action.amount)
+		intent_text.text = "[center]" + str(upcoming_damage)
 	elif action.get_method() == "defend":
 		intent_sprite.texture = DEFEND_INTENT_TEXTURE

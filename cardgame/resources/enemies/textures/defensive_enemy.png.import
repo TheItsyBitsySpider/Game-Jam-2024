@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doo0okgdpv6vp"
-path="res://.godot/imported/Sneaky-gremlin.png-60e3e07caf054b204464b0e2a88f4bc7.ctex"
+uid="uid://buqklar4iuhst"
+path="res://.godot/imported/defensive_enemy.png-77ade6c8bf42e3f4f201e7b7227880db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/Sneaky-gremlin.png"
-dest_files=["res://.godot/imported/Sneaky-gremlin.png-60e3e07caf054b204464b0e2a88f4bc7.ctex"]
+source_file="res://resources/enemies/textures/defensive_enemy.png"
+dest_files=["res://.godot/imported/defensive_enemy.png-77ade6c8bf42e3f4f201e7b7227880db.ctex"]
 
 [params]
 

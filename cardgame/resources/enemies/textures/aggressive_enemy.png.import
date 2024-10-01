@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqklar4iuhst"
-path="res://.godot/imported/Shield_Gremlin.png-2b82ae8f77b1288a1abb3a10d9cd62fa.ctex"
+uid="uid://doo0okgdpv6vp"
+path="res://.godot/imported/aggressive_enemy.png-dbd6c35f6ddf8a377e87e0908230b78a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/Shield_Gremlin.png"
-dest_files=["res://.godot/imported/Shield_Gremlin.png-2b82ae8f77b1288a1abb3a10d9cd62fa.ctex"]
+source_file="res://resources/enemies/textures/aggressive_enemy.png"
+dest_files=["res://.godot/imported/aggressive_enemy.png-dbd6c35f6ddf8a377e87e0908230b78a.ctex"]
 
 [params]
 

@@ -52,11 +52,11 @@ var strength: int:
 	get:
 		return _strength
 	set(val):
-		# Can have negative strength as a potential debuff
+		# NOTE: Can have negative strength as a potential debuff
 		_strength = val
-		# TODO change strength & other buffs to be a symbol like in Slay the Spire
+		# TODO: Symbols for strength and other buffs, as in Slay the Spire
 		_update_label()
-		
+
 func _ready():
 	if override_texture:
 		sprite.texture = override_texture

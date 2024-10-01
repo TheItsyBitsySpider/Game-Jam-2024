@@ -15,7 +15,7 @@ static func load_enemies():
 		data[name]["texture"] = load(data[name]["texture"])
 	print("Loaded " + str(len(data)) + " enemies.")
 
-static func create_enemy(name) -> Enemy:
+static func create_enemy(name: String) -> Enemy:
 	var enemy = Enemy.SCENE.instantiate()
 	enemy.data = data[name]
 	return enemy

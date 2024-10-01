@@ -17,7 +17,7 @@ static func load_cards():
 		data[name]["ability"] = load(data[name]["ability"])
 	print("Loaded " + str(len(data)) + " cards.")
 
-static func create_card(name) -> BaseCard:
+static func create_card(name: String) -> BaseCard:
 	var card = SCENE.instantiate()
 	card.set_script(data[name]["ability"])
 	card.setup(data[name])

@@ -76,6 +76,9 @@ func ping():
 	
 	character.defense = 0
 	
+	character.vulnerable -= 1
+	character.weak -= 1
+	
 	Player.can_play = false
 	while Player.hand.cards:
 		await get_tree().create_timer(0.1).timeout

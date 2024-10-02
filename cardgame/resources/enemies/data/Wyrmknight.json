@@ -1,0 +1,10 @@
+{
+	"name": "Wyrmknight",
+	"texture": "res://resources/enemies/textures/Wyrmknight.png",
+	"health": 12,
+	"random_actions": true,
+	"actions": [
+		["attack", 8, "puppet"],
+		["defend", 5, "self"]
+	]
+}

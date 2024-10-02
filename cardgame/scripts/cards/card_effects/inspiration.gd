@@ -1,9 +1,9 @@
-class_name StrikeCard
+class_name InspirationCard
 
 extends BaseCard
 
 func play(character: Node2D):
-	if character is Enemy:
+	if character is Puppet:
 		var played = super(character)
 		if played:
-			character.character.hit(6)
+			character.character.phantasia += 1

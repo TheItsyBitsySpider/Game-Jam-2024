@@ -51,6 +51,9 @@ func end_battle():
 	in_battle = false
 	Main.puppet.character.defense = 0
 	Main.puppet.character.strength = 0
+	Main.puppet.character.weak = 0
+	Main.puppet.character.vulnerable = 0
+	Main.puppet.character.phantasia = 0
 	Player.hand.pull_down()
 	battle.queue_free()
 	battle = null

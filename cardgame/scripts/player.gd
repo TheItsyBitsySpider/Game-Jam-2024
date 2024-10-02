@@ -13,10 +13,12 @@ static var can_play: bool = true
 static var smother_left_click: bool = false
 
 static func setup():
-	for i in range(5):
-		deck.append(CardDatabase.create_card("strike"))
-	for i in range(5):
-		deck.append(CardDatabase.create_card("defend"))
+	for i in range(4):
+		deck.append(CardDatabase.create_card("Hoof"))
+	for i in range(4):
+		deck.append(CardDatabase.create_card("Endure"))
+	deck.append(CardDatabase.create_card("Roundhouse Kick"))
+	deck.append(CardDatabase.create_card("Inspiration"))
 	
 	Main.INSTANCE.add_child(hand)
 	

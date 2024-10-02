@@ -57,11 +57,37 @@ var strength: int:
 		# TODO: Symbols for strength and other buffs, as in Slay the Spire
 		_update_label()
 
+var _weak: int
+var weak: int:
+	get:
+		return _weak
+	set(val):
+		_weak = clamp(val, 0, INF)
+		_update_label()
+
+var _vulnerable: int
+var vulnerable: int:
+	get:
+		return _vulnerable
+	set(val):
+		_vulnerable = clamp(val, 0, INF)
+		_update_label()
+
+var _phantasia: int
+var phantasia: int:
+	get:
+		return _phantasia
+	set(val):
+		_phantasia = clamp(val, 0, INF)
+		_update_label()
+
 func _ready():
 	if override_texture:
 		sprite.texture = override_texture
 
 func hit(damage: int):
+	if vulnerable > 0:
+		damage = ceil(damage * 1.5)
 	current_health -= clamp((damage - defense), 0, INF)
 	defense -= damage
 
@@ -70,4 +96,7 @@ func _update_label():
 		' '.join(["[center]", alias]),
 		' '.join(["HP:", current_health, "/", total_health]),
 		' '.join(["Defense:", defense]),
-		' '.join(["Strength:", strength])])
+		' '.join(["Strength:", strength]),
+		' '.join(["Weak:", weak]),
+		' '.join(["Vulnerable:", vulnerable]),
+		' '.join(["Phantasia:", phantasia])])

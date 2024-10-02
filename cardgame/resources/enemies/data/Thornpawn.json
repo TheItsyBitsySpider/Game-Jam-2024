@@ -1,0 +1,10 @@
+{
+	"name": "Thornpawn",
+	"texture": "res://resources/enemies/textures/Thornpawn.png",
+	"health": 5,
+	"random_actions": false,
+	"actions": [
+		["attack", 3, "puppet"],
+		["buff_attack", 1, "self"]
+	]
+}

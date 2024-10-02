@@ -13,6 +13,8 @@ func _init(action: String, amount: int, target: Node2D, stats: Character):
 
 func attack():
 	if target is Puppet or Enemy:
+		if stats.weak > 0:
+			amount = ceil(amount * .75)
 		target.character.hit(amount + stats.strength)
 
 func defend():
@@ -22,3 +24,8 @@ func defend():
 func buff_attack():
 	if target is Puppet or Enemy:
 		target.character.strength += amount
+
+func debuff_vuln_weak():
+	if target is Puppet or Enemy:
+		target.character.weak += amount
+		target.character.vulnerable += amount

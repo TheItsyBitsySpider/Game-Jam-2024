@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqklar4iuhst"
-path="res://.godot/imported/defensive_enemy.png-77ade6c8bf42e3f4f201e7b7227880db.ctex"
+uid="uid://bt5uakjuemelk"
+path="res://.godot/imported/seek.png-cee02a14e8407a23a71210d6cfff5bf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/defensive_enemy.png"
-dest_files=["res://.godot/imported/defensive_enemy.png-77ade6c8bf42e3f4f201e7b7227880db.ctex"]
+source_file="res://resources/cards/textures/seek.png"
+dest_files=["res://.godot/imported/seek.png-cee02a14e8407a23a71210d6cfff5bf9.ctex"]
 
 [params]
 

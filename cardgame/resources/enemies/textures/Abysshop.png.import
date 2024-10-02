@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doo0okgdpv6vp"
-path="res://.godot/imported/aggressive_enemy.png-dbd6c35f6ddf8a377e87e0908230b78a.ctex"
+uid="uid://bjysuf82rjhc2"
+path="res://.godot/imported/Abysshop.png-9080d81e6ec8c01d4bd8acad0aac79de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/aggressive_enemy.png"
-dest_files=["res://.godot/imported/aggressive_enemy.png-dbd6c35f6ddf8a377e87e0908230b78a.ctex"]
+source_file="res://resources/enemies/textures/Abysshop.png"
+dest_files=["res://.godot/imported/Abysshop.png-9080d81e6ec8c01d4bd8acad0aac79de.ctex"]
 
 [params]
 

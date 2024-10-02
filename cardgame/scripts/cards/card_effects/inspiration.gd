@@ -7,3 +7,4 @@ func play(character: Node2D):
 		var played = super(character)
 		if played:
 			character.character.phantasia += 1
+			Player.draw_card()

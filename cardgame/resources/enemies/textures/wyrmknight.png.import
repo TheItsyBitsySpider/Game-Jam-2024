@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc55obogl87l3"
-path="res://.godot/imported/strike.png-5b00197ae8135cef6ca582734b67eab0.ctex"
+uid="uid://ddhuivffiw1we"
+path="res://.godot/imported/wyrmknight.png-5b623a4b9ed6aa42c425f7ad4b70f377.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/cards/textures/strike.png"
-dest_files=["res://.godot/imported/strike.png-5b00197ae8135cef6ca582734b67eab0.ctex"]
+source_file="res://resources/enemies/textures/wyrmknight.png"
+dest_files=["res://.godot/imported/wyrmknight.png-5b623a4b9ed6aa42c425f7ad4b70f377.ctex"]
 
 [params]
 

@@ -1,0 +1,6 @@
+{
+	"name": "Inspiration",
+	"cost": 0,
+	"texture": "res://resources/cards/textures/inspiration.png",
+	"ability": "res://scripts/cards/card_effects/inspiration.gd"
+}

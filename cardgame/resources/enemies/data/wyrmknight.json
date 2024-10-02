@@ -1,6 +1,6 @@
 {
 	"name": "Wyrmknight",
-	"texture": "res://resources/enemies/textures/Wyrmknight.png",
+	"texture": "res://resources/enemies/textures/wyrmknight.png",
 	"health": 12,
 	"random_actions": true,
 	"actions": [

@@ -1,6 +1,6 @@
 {
 	"name": "Thornpawn",
-	"texture": "res://resources/enemies/textures/Thornpawn.png",
+	"texture": "res://resources/enemies/textures/thornpawn.png",
 	"health": 5,
 	"random_actions": false,
 	"actions": [

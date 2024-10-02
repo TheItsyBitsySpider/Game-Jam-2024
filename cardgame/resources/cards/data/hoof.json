@@ -1,0 +1,6 @@
+{
+	"name": "Hoof",
+	"cost": 1,
+	"texture": "res://resources/cards/textures/hoof.png",
+	"ability": "res://scripts/cards/card_effects/hoof.gd"
+}

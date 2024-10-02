@@ -34,7 +34,7 @@ func _ready():
 	_update_deck_label()
 	_update_discard_label()
 	
-	var enemy_types = ["Wyrmknight", "Thornpawn", "Abysshop"]
+	var enemy_types = ["Thornpawn", "Wyrmknight", "Abysshop"]
 	var enemy = EnemyDatabase.create_enemy(enemy_types.pick_random())
 	enemy.position.x = Main.puppet.position.x + Main.screen_size.x / 2
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddhuivffiw1we"
-path="res://.godot/imported/Wyrmknight.png-07331d0fe857c87c894e2db9c37b2efc.ctex"
+uid="uid://bt5uakjuemelk"
+path="res://.godot/imported/inspiration.png-71e54cfdff3d9f79da6bb593c7d527c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/Wyrmknight.png"
-dest_files=["res://.godot/imported/Wyrmknight.png-07331d0fe857c87c894e2db9c37b2efc.ctex"]
+source_file="res://resources/cards/textures/inspiration.png"
+dest_files=["res://.godot/imported/inspiration.png-71e54cfdff3d9f79da6bb593c7d527c2.ctex"]
 
 [params]
 

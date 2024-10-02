@@ -1,10 +1,10 @@
 {
 	"name": "Abysshop",
-	"texture": "res://resources/enemies/textures/Abysshop.png",
+	"texture": "res://resources/enemies/textures/abysshop.png",
 	"health": 8,
 	"random_actions": true,
 	"actions": [
 		["attack", 5, "puppet"],
-		["debuff_vuln_weak", 2, "puppet"]
+		["debuff_vuln_weak", 1, "puppet"]
 	]
 }

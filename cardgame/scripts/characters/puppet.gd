@@ -52,15 +52,15 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	Player.hovered_puppet = null
 
-func progress_debuffs():
+func _progress_debuffs():
 	character.weak -= 1
 	character.vulnerable -= 1
 
 func ping():
 	Main.battle.end_turn_button.disabled = false
 	
-	progress_debuffs()
 	character.defense = 0
+	_progress_debuffs()
 	current_energy = total_energy
 	
 	get_tree().call_group("enemy", "determine_intent")

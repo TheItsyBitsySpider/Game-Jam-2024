@@ -1,0 +1,6 @@
+{
+	"name": "Endure",
+	"cost": 1,
+	"texture": "res://resources/cards/textures/endure.png",
+	"ability": "res://scripts/cards/card_effects/endure.gd"
+}

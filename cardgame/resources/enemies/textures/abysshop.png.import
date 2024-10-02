@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjysuf82rjhc2"
-path="res://.godot/imported/Abysshop.png-9080d81e6ec8c01d4bd8acad0aac79de.ctex"
+path="res://.godot/imported/abysshop.png-29064130b28ada75ef7564b5fe3fdadf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/enemies/textures/Abysshop.png"
-dest_files=["res://.godot/imported/Abysshop.png-9080d81e6ec8c01d4bd8acad0aac79de.ctex"]
+source_file="res://resources/enemies/textures/abysshop.png"
+dest_files=["res://.godot/imported/abysshop.png-29064130b28ada75ef7564b5fe3fdadf.ctex"]
 
 [params]
 

@@ -71,10 +71,15 @@ func determine_intent():
 		action_index += 1
 	update_intent_label()
 
+func _progress_debuffs():
+	character.weak -= 1
+	character.vulnerable -= 1
+
 func ping():
 	Main.battle.end_turn_button.disabled = true
 	
 	character.defense = 0
+	_progress_debuffs()
 	
 	Player.can_play = false
 	while Player.hand.cards:
@@ -97,5 +102,5 @@ func update_intent_label():
 		intent_text.text = "[center]" + str(upcoming_damage)
 	elif action.get_method() == "defend":
 		intent_sprite.texture = DEFEND_INTENT_TEXTURE
-	elif action.get_method() == "buff_attack":
+	else:
 		intent_sprite.texture = BUFF_INTENT_TEXTURE

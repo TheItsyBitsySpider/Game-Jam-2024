@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://broarwskjcx74"
-path="res://.godot/imported/dialogue_names.ttf-5ba1e8bcdef516543a91874ebb1a5487.fontdata"
+path="res://.godot/imported/default.ttf-8c86ed2aa75338ccabf589aecb1b5099.fontdata"
 
 [deps]
 
-source_file="res://resources/fonts/dialogue_names.ttf"
-dest_files=["res://.godot/imported/dialogue_names.ttf-5ba1e8bcdef516543a91874ebb1a5487.fontdata"]
+source_file="res://resources/fonts/default.ttf"
+dest_files=["res://.godot/imported/default.ttf-8c86ed2aa75338ccabf589aecb1b5099.fontdata"]
 
 [params]
 

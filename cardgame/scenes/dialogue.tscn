@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_j4rrq"]
 [ext_resource type="Texture2D" uid="uid://v5d1r0jgf1gw" path="res://resources/gui/dialogue/dialogue_box.png" id="1_txy5h"]
 [ext_resource type="Texture2D" uid="uid://cqhahwsoe1k4r" path="res://resources/gui/dialogue/dialogue_next.png" id="3_dpdc8"]
-[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/dialogue_names.ttf" id="3_e0j5u"]
+[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="3_e0j5u"]
 
 [sub_resource type="Gradient" id="Gradient_jlc55"]
 offsets = PackedFloat32Array(0)

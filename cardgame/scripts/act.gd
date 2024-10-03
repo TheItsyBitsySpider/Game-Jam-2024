@@ -9,6 +9,9 @@ const PUPPET_SPEED: int = 500
 @onready var background: Sprite2D = %Background
 @onready var puppet: Puppet = $Puppet
 
+var dialogue: Dialogue
+var in_dialogue: bool = false
+
 var battle: Battle
 var in_battle: bool = false
 
@@ -18,7 +21,7 @@ func _init():
 	add_child(trigger)
 
 func _process(delta: float):
-	if not in_battle:
+	if not in_dialogue and not in_battle:
 		var moving_right = Input.is_action_pressed("right")
 		var moving_left = Input.is_action_pressed("left")
 		
@@ -40,6 +43,19 @@ func _process(delta: float):
 		var screen_size = Main.screen_size
 		Main.INSTANCE.camera.position.x = puppet.position.x + screen_size.x / 4
 		Main.INSTANCE.camera.target_position.x = Main.INSTANCE.camera.position.x
+
+func start_dialogue():
+	in_dialogue = true
+	dialogue = DialogueDatabase.create_dialogue("darling")
+	add_child(dialogue)
+
+func end_dialogue():
+	in_dialogue = false
+	dialogue.blackout_target_opacity = 0
+	dialogue.canvas_layer.visible = false
+	await dialogue.reached_blackout_target_opacity
+	dialogue.queue_free()
+	dialogue = null
 
 func start_battle():
 	in_battle = true

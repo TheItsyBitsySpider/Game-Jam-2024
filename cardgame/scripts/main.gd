@@ -16,6 +16,10 @@ static var puppet: Puppet:
 	get:
 		return act.puppet if act else null
 
+static var dialogue: Dialogue:
+	get:
+		return act.dialogue if act else null
+
 static var battle: Battle:
 	get:
 		return act.battle if act else null
@@ -30,9 +34,10 @@ func _ready():
 	
 	act = Act.SCENE.instantiate()
 	add_child(act)
-	act.start_battle()
+	act.start_dialogue()
 
 func _load():
+	DialogueDatabase.load_dialogue()
 	CardDatabase.load_cards()
 	EnemyDatabase.load_enemies()
 

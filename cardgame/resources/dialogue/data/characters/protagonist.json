@@ -1,0 +1,8 @@
+{
+	"name": "Protagonist",
+	"texture": "res://resources/enemies/textures/thornpawn.png",
+	"font_style": "res://resources/fonts/protagonist.ttf",
+	"font_size": 20,
+	"typewriter_speed": 0.01,
+	"type_by_word": false
+}

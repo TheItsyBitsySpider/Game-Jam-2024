@@ -2,6 +2,9 @@ class_name Main
 
 extends Node2D
 
+const WORLD_BGM: Resource = preload("res://resources/soundtracks/world.wav")
+const BATTLE_BGM: Resource = preload("res://resources/soundtracks/battle.wav")
+
 static var INSTANCE: Main
 
 @onready var camera: Camera = $Camera2D
@@ -36,6 +39,8 @@ func _ready():
 	act = Act.SCENE.instantiate()
 	add_child(act)
 	act.start_dialogue()
+	
+	audio_stream_player.reparent(act.puppet)
 
 func _load():
 	DialogueDatabase.load_dialogue()

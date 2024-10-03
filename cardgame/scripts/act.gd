@@ -59,12 +59,20 @@ func end_dialogue():
 
 func start_battle():
 	in_battle = true
+	
+	Main.INSTANCE.audio_stream_player.stream = Main.BATTLE_BGM
+	Main.INSTANCE.audio_stream_player.play()
+	
 	Player.hand.pull_up()
 	battle = Battle.SCENE.instantiate() as Battle
 	add_child(battle)
 
 func end_battle():
 	in_battle = false
+	
+	Main.INSTANCE.audio_stream_player.stream = Main.WORLD_BGM
+	Main.INSTANCE.audio_stream_player.play()
+	
 	Main.puppet.character.defense = 0
 	Main.puppet.character.strength = 0
 	Main.puppet.character.weak = 0

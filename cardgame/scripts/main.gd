@@ -5,6 +5,7 @@ extends Node2D
 static var INSTANCE: Main
 
 @onready var camera: Camera = $Camera2D
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 static var screen_size: Vector2:
 	get:
@@ -43,3 +44,6 @@ func _load():
 
 func _process(delta: float):
 	Player.process(delta)
+
+func _on_audio_stream_player_finished():
+	audio_stream_player.play()

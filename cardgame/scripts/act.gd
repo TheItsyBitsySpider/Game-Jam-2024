@@ -41,8 +41,8 @@ func _process(delta: float):
 			Player.hand.target_position.x -= speed
 		
 		var screen_size = Main.screen_size
-		Main.INSTANCE.camera.position.x = puppet.position.x + screen_size.x / 4
-		Main.INSTANCE.camera.target_position.x = Main.INSTANCE.camera.position.x
+		Main.camera.position.x = puppet.position.x + screen_size.x / 4
+		Main.camera.target_position.x = Main.camera.position.x
 
 func start_dialogue():
 	in_dialogue = true
@@ -60,8 +60,11 @@ func end_dialogue():
 func start_battle():
 	in_battle = true
 	
-	Main.INSTANCE.audio_stream_player.stream = Main.BATTLE_BGM
-	Main.INSTANCE.audio_stream_player.play()
+	Main.world_bgm_player.fade_speed = 0.1
+	Main.battle_bgm_player.fade_speed = 3
+	
+	Main.world_bgm_player.target_volume_db = -80
+	Main.battle_bgm_player.target_volume_db = 0
 	
 	Player.hand.pull_up()
 	battle = Battle.SCENE.instantiate() as Battle
@@ -70,8 +73,11 @@ func start_battle():
 func end_battle():
 	in_battle = false
 	
-	Main.INSTANCE.audio_stream_player.stream = Main.WORLD_BGM
-	Main.INSTANCE.audio_stream_player.play()
+	Main.world_bgm_player.fade_speed = 3
+	Main.battle_bgm_player.fade_speed = 0.1
+	
+	Main.world_bgm_player.target_volume_db = 0
+	Main.battle_bgm_player.target_volume_db = -80
 	
 	Main.puppet.character.defense = 0
 	Main.puppet.character.strength = 0

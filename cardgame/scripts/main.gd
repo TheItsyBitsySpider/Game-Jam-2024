@@ -7,8 +7,21 @@ const BATTLE_BGM: Resource = preload("res://resources/soundtracks/battle.wav")
 
 static var INSTANCE: Main
 
-@onready var camera: Camera = $Camera2D
-@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var _camera: Camera = $Camera2D
+@onready var _world_bgm_player: BGM_Player = %WorldBGMPlayer
+@onready var _battle_bgm_player: BGM_Player = %BattleBGMPlayer
+
+static var camera: Camera2D:
+	get:
+		return INSTANCE._camera
+
+static var world_bgm_player: BGM_Player:
+	get:
+		return INSTANCE._world_bgm_player
+
+static var battle_bgm_player: BGM_Player:
+	get:
+		return INSTANCE._battle_bgm_player
 
 static var screen_size: Vector2:
 	get:
@@ -40,7 +53,9 @@ func _ready():
 	add_child(act)
 	act.start_dialogue()
 	
-	audio_stream_player.reparent(act.puppet)
+	world_bgm_player.reparent(puppet)
+	battle_bgm_player.reparent(puppet)
+	battle_bgm_player.target_volume_db = -80
 
 func _load():
 	DialogueDatabase.load_dialogue()
@@ -50,5 +65,8 @@ func _load():
 func _process(delta: float):
 	Player.process(delta)
 
-func _on_audio_stream_player_finished():
-	audio_stream_player.play()
+func _on_world_bgm_player_finished() -> void:
+	world_bgm_player.play()
+
+func _on_battle_bgm_player_finished():
+	battle_bgm_player.play()

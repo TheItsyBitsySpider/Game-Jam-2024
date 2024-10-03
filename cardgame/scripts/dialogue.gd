@@ -29,10 +29,6 @@ var text: String:
 	get:
 		return data[dialogue_index]["dialogue"]
 
-var type_by_word: bool:
-	get:
-		return DialogueDatabase.character_data[character_alias]["type_by_word"]
-
 var _dialogue_index: int
 var dialogue_index: int:
 	get:

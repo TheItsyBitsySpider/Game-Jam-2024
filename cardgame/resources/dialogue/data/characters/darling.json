@@ -3,6 +3,6 @@
 	"texture": "res://resources/enemies/textures/abysshop.png",
 	"font_style": "res://resources/fonts/darling.ttf",
 	"font_size": 21,
-	"typewriter_speed": 0.02,
+	"typewriter_speed": 0.04,
 	"type_by_word": false
 }

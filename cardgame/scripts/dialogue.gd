@@ -110,7 +110,13 @@ func _process(delta: float):
 func _on_typewriter_timeout():
 	if len(dialogue.text) < len(text):
 		if not type_by_word:
-			dialogue.text += text[len(dialogue.text)]
+			var index = len(dialogue.text)
+			var char = text[index]
+			if char == '[':
+				var tag = text.substr(index, text.find("]", index) - index + 1)
+				dialogue.text += tag
+				return _on_typewriter_timeout()
+			dialogue.text += char
 		else:
 			var word = text.trim_prefix(dialogue.text).split(' ', false)[0]
 			dialogue.text += (" " if dialogue.text else "") + word

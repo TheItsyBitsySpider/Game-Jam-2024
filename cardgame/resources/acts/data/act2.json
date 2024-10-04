@@ -1,0 +1,13 @@
+{
+	"act": 1,
+	"start_dialogue": "lampy",
+	"background": "res://resources/environment/backgrounds/background.png",
+	"post_combat_dialogue": [
+	],
+	"combat_triggers": [
+		[400, null],
+		[600, null],
+		[800, null]
+	],
+	"next_act": [1000, 1]
+}

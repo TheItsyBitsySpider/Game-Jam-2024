@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwnaqo6gicwqi"]
+[gd_scene load_steps=7 format=3 uid="uid://bwnaqo6gicwqi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_adxlg"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_guiqy"]
 [ext_resource type="AudioStream" uid="uid://bohfjgfrnmvqr" path="res://resources/soundtracks/world.wav" id="3_kbm0u"]
 [ext_resource type="AudioStream" uid="uid://cedc06bagj3um" path="res://resources/soundtracks/battle.wav" id="4_hcdkq"]
 [ext_resource type="Script" path="res://scripts/bgm_player.gd" id="4_xxiv2"]
+[ext_resource type="PackedScene" uid="uid://bvchuhk7yo4cu" path="res://scenes/characters/puppet.tscn" id="6_4l642"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_adxlg")
@@ -15,15 +16,15 @@ script = ExtResource("2_guiqy")
 [node name="WorldBGMPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_kbm0u")
-autoplay = true
 script = ExtResource("4_xxiv2")
 
 [node name="BattleBGMPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_hcdkq")
 volume_db = -80.0
-autoplay = true
 script = ExtResource("4_xxiv2")
+
+[node name="Puppet" parent="." instance=ExtResource("6_4l642")]
 
 [connection signal="finished" from="WorldBGMPlayer" to="." method="_on_world_bgm_player_finished"]
 [connection signal="finished" from="BattleBGMPlayer" to="." method="_on_battle_bgm_player_finished"]

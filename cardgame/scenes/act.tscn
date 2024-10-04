@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsa00db33apqs"]
+[gd_scene load_steps=3 format=3 uid="uid://dsa00db33apqs"]
 
-[ext_resource type="PackedScene" uid="uid://bvchuhk7yo4cu" path="res://scenes/characters/puppet.tscn" id="1_5cgqv"]
 [ext_resource type="Script" path="res://scripts/act.gd" id="1_5vrdr"]
 [ext_resource type="Texture2D" uid="uid://du2csscc8p4v1" path="res://resources/environment/backgrounds/background.png" id="2_y6umd"]
 
@@ -10,7 +9,6 @@ script = ExtResource("1_5vrdr")
 [node name="Background" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = -10
-position = Vector2(0, -128)
+position = Vector2(-287, -601)
 texture = ExtResource("2_y6umd")
-
-[node name="Puppet" parent="." instance=ExtResource("1_5cgqv")]
+centered = false

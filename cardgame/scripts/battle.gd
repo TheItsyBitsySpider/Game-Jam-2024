@@ -15,6 +15,8 @@ var discard: Array[BaseCard]
 var turn_order: Array[Node2D]
 var turn: int
 
+var post_dialogue: String
+
 func _init():
 	_shuffle_deck(Player.deck)
 
@@ -34,16 +36,6 @@ func _ready():
 	_update_deck_label()
 	_update_discard_label()
 	
-	var enemy_types = ["Thornpawn", "Wyrmknight", "Abysshop"]
-	var enemy = EnemyDatabase.create_enemy(enemy_types.pick_random())
-	enemy.position.x = Main.puppet.position.x + Main.screen_size.x / 2
-	
-	var characters = [enemy]
-	for character in characters:
-		turn_order.append(character)
-		add_child(character)
-	
-	turn_order.push_front(Main.act.puppet)
 	turn_order.front().ping()
 
 func _on_end_turn_button_pressed():

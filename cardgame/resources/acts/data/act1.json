@@ -1,16 +1,42 @@
 {
-	"act": 0,
-	"start_dialogue": "darling",
+	"index": 0,
 	"background": "res://resources/environment/backgrounds/background.png",
-	"post_combat_dialogue": [
-		"bedroom_defeated_enemy_1",
-		"bedroom_defeated_enemy_2",
-		"bedroom_defeated_enemy_3"
-	],
-	"combat_triggers": [
-		[400, null],
-		[600, null],
-		[800, null]
-	],
-	"next_act": [1000, 1]
+	"triggers": [
+		{
+			"action": "start_dialogue",
+			"position": 0,
+			"args": {
+				"dialogue": "darling"
+			}
+		},
+		{
+			"action": "start_battle",
+			"position": 400,
+			"args": {
+				"encounters": [["Thornpawn"]],
+				"post_dialogue": "bedroom_defeated_1"
+			}
+		},
+		{
+			"action": "start_battle",
+			"position": 800,
+			"args": {
+				"encounters": [["Thornpawn"]],
+				"post_dialogue": "bedroom_defeated_2"
+			}
+		},
+		{
+			"action": "start_battle",
+			"position": 1200,
+			"args": {
+				"encounters": [["Thornpawn"]],
+				"post_dialogue": "bedroom_defeated_3"
+			}
+		},
+		{
+			"action": "next_act",
+			"position": 1600,
+			"args": {}
+		}
+	]
 }

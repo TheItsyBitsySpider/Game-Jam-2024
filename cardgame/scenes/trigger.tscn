@@ -1,28 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bec0vc5rt6ahg"]
+[gd_scene load_steps=3 format=3 uid="uid://bec0vc5rt6ahg"]
 
 [ext_resource type="Script" path="res://scripts/trigger.gd" id="1_x2btt"]
-[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/dialogue_names.ttf" id="2_4libs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjbcw"]
 
-[node name="Trigger" type="Node2D" groups=["Trigger"]]
+[node name="Trigger" type="Node2D"]
 script = ExtResource("1_x2btt")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_tjbcw")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -83.0
-offset_top = -105.0
-offset_right = 84.0
-offset_bottom = -84.0
-theme_override_fonts/normal_font = ExtResource("2_4libs")
-theme_override_font_sizes/italics_font_size = 1
-bbcode_enabled = true
-text = "[center]"
-scroll_active = false
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]

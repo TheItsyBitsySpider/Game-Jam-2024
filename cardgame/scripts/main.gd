@@ -51,7 +51,7 @@ func _ready():
 	
 	act = Act.SCENE.instantiate()
 	add_child(act)
-	act.start_dialogue()
+	act.load_act(0)
 	
 	world_bgm_player.reparent(puppet)
 	battle_bgm_player.reparent(puppet)
@@ -61,7 +61,8 @@ func _load():
 	DialogueDatabase.load_dialogue()
 	CardDatabase.load_cards()
 	EnemyDatabase.load_enemies()
-
+	ActDatabase.load_act_information()
+	
 func _process(delta: float):
 	Player.process(delta)
 

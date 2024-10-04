@@ -1,0 +1,16 @@
+{
+	"act": 0,
+	"start_dialogue": "darling",
+	"background": "res://resources/environment/backgrounds/background.png",
+	"post_combat_dialogue": [
+		"bedroom_defeated_enemy_1",
+		"bedroom_defeated_enemy_2",
+		"bedroom_defeated_enemy_3"
+	],
+	"combat_triggers": [
+		[400, null],
+		[600, null],
+		[800, null]
+	],
+	"next_act": [1000, 1]
+}

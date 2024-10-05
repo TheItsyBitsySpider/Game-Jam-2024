@@ -20,7 +20,7 @@
 			"action": "start_battle",
 			"position": 2400,
 			"args": {
-				"encounters": [["Thornpawn"]],
+				"encounters": [["Thornpawn"], ["Wyrmknight"], ["Abysshop"]],
 				"post_dialogue": "bedroom_defeated_1"
 			}
 		},
@@ -28,7 +28,7 @@
 			"action": "start_battle",
 			"position": 3200,
 			"args": {
-				"encounters": [["Thornpawn"]],
+				"encounters": [["Thornpawn"], ["Wyrmknight"], ["Abysshop"]],
 				"post_dialogue": "bedroom_defeated_2"
 			}
 		},
@@ -36,7 +36,7 @@
 			"action": "start_battle",
 			"position": 4000,
 			"args": {
-				"encounters": [["Abysshop"]],
+				"encounters": [["Thornpawn"], ["Wyrmknight"], ["Abysshop"]],
 				"post_dialogue": "bedroom_defeated_3"
 			}
 		},

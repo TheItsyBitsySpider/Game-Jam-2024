@@ -21,7 +21,7 @@ const STATUS_EXPLANATIONS: Dictionary = {
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var area: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
-@onready var label: RichTextLabel = $VBoxContainer/RichTextLabel
+@onready var label: RichTextLabel = $MarginContainer/RichTextLabel
 @onready var status_holder: HBoxContainer = $HBoxContainer
 
 var _weakness_debuff
@@ -113,10 +113,7 @@ func hit(damage: int):
 	defense -= damage
 
 func _update_label():
-	label.text = '\n'.join([
-		' '.join(["[center]", alias]),
-		' '.join(["HP:", current_health, "/", total_health]),
-		' '.join(["Defense:", defense])])
+	label.text = alias
 
 func _update_status(amt: int, status, status_img: String, explanation: String):
 	if amt > 0 and status == null:

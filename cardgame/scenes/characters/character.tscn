@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://holib21ftpsf"]
+[gd_scene load_steps=4 format=3 uid="uid://holib21ftpsf"]
 
 [ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_dy24k"]
+[ext_resource type="FontFile" uid="uid://bbvufojetlfdh" path="res://resources/fonts/darling.ttf" id="2_kge8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4udb"]
 radius = 84.0
@@ -15,28 +16,33 @@ script = ExtResource("1_dy24k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_s4udb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = -78.0
-offset_top = 100.0
-offset_right = 79.0
-offset_bottom = 150.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-clip_contents = false
-layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_constants/line_separation = -6
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = -78.0
 offset_top = -135.0
 offset_right = 79.0
 offset_bottom = -135.0
 theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = -160
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_separation = -6
+theme_override_fonts/normal_font = ExtResource("2_kge8k")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

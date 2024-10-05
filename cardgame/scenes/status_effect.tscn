@@ -17,6 +17,7 @@ mouse_filter = 1
 script = ExtResource("1_kf45c")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -27.0
 offset_right = 82.0
 offset_bottom = 109.0
@@ -24,6 +25,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_fdp6k")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 29.0
 offset_right = 44.0

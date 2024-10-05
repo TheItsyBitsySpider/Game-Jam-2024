@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://diiw15ga6j62h"]
+[gd_scene load_steps=18 format=3 uid="uid://diiw15ga6j62h"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_uet7q"]
 [ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="2_vb2bd"]
+[ext_resource type="Texture2D" uid="uid://bxsvu7has2pjn" path="res://resources/gui/energy.png" id="3_qo3ip"]
+[ext_resource type="Script" path="res://scripts/explanation_box.gd" id="4_itdyp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_le6ds"]
 
@@ -24,6 +26,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6tlhu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bph6o"]
+
+[sub_resource type="Gradient" id="Gradient_bgp1v"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8ief2"]
+gradient = SubResource("Gradient_bgp1v")
+width = 1
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_uet7q")
@@ -53,20 +61,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("2_vb2bd")
 theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Energy" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
-unique_name_in_owner = true
-clip_contents = false
-layout_mode = 2
-mouse_filter = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
@@ -111,4 +105,65 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 540.0
+offset_top = 366.0
+offset_right = 580.0
+offset_bottom = 406.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_qo3ip")
+
+[node name="Energy" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 53.0
+offset_bottom = 50.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "3/3"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ExplanationBox" type="Control" parent="CanvasLayer/TextureRect"]
+visible = false
+anchors_preset = 0
+offset_left = 19.5
+offset_top = 3.0
+offset_right = 59.5
+offset_bottom = 43.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("4_itdyp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/ExplanationBox"]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 40.0
+offset_right = 264.0
+offset_bottom = 72.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_8ief2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/ExplanationBox"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 4.0
+offset_right = 275.0
+offset_bottom = 72.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_vb2bd")
+text = "Cards cost energy to play. This shows your current energy / max energy."
+scroll_active = false
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/EndTurn" to="." method="_on_end_turn_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/TextureRect" to="CanvasLayer/TextureRect/ExplanationBox" method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/TextureRect" to="CanvasLayer/TextureRect/ExplanationBox" method="_on_texture_rect_mouse_exited"]

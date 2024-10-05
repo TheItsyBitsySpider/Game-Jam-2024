@@ -8,6 +8,7 @@ const INTENT_DIR_PATH: String = "res://resources/intents/textures/"
 const ATTACK_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "attack.png")
 const DEFEND_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "defend.png")
 const BUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "buff.png")
+const DEBUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "debuff.png")
 
 @onready var character: Character = $Character
 @onready var intent_sprite: Sprite2D = $UpcomingTurnSprite
@@ -111,6 +112,9 @@ func update_intent_label():
 	elif action.get_method() == "defend":
 		intent_sprite.texture = DEFEND_INTENT_TEXTURE
 		intent_explanation_text.text = "[center]" + "The enemy intends to defend itself."
-	else:
+	elif action.get_method().begins_with("buff"):
 		intent_sprite.texture = BUFF_INTENT_TEXTURE
 		intent_explanation_text.text = "[center]" + "The enemy intends to buff itself."
+	elif action.get_method().begins_with("debuff"):
+		intent_sprite.texture = DEBUFF_INTENT_TEXTURE
+		intent_explanation_text.text = "[center]" + "The enemy intends to inflict a debuff on you."

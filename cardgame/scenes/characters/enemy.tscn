@@ -16,17 +16,17 @@ script = ExtResource("1_d78xy")
 [node name="Character" parent="." instance=ExtResource("2_p1bbq")]
 
 [node name="UpcomingTurnSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -112)
+position = Vector2(-0.5, -186)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -33.5
-offset_top = -100.0
-offset_right = -6.5
-offset_bottom = -66.0
+offset_left = -34.0
+offset_top = -174.0
+offset_right = -7.0
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)

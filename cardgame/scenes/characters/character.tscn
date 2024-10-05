@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://holib21ftpsf"]
+[gd_scene load_steps=5 format=3 uid="uid://holib21ftpsf"]
 
 [ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_dy24k"]
+[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="2_cpd0r"]
 [ext_resource type="FontFile" uid="uid://bbvufojetlfdh" path="res://resources/fonts/darling.ttf" id="2_kge8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4udb"]
@@ -29,9 +30,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = -160
+theme_override_constants/margin_bottom = -208
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+z_index = 5
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.690196, 0.545098, 0.168627, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_cpd0r")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Stats" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+z_index = 5
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4

@@ -45,7 +45,6 @@ func setup():
 	
 	character.sprite.texture = data["texture"]
 	character.sprite.scale = Vector2(.5, .5)
-	character.label.scale = Vector2(2, 2)
 	
 	for action in data["actions"]:
 		var type = action[0]

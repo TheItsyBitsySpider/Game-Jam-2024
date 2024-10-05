@@ -9,6 +9,7 @@
 [node name="Card" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
 texture = ExtResource("1_iswk4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sprite2D"]

@@ -3,6 +3,7 @@ class_name BaseCard
 extends Node2D
 
 const SPEED: int = 8
+const TRANSITION_SPEED: int = 5
 
 const WIDTH: int = 136
 const HEIGHT: int = 175
@@ -28,6 +29,8 @@ var texture: Resource:
 var target_position: Vector2
 var sprite_target_position: Vector2
 var target_rotation_degrees: float
+
+var target_opacity: float = 1
 
 var rotation_degrees_before_dragging: float
 
@@ -59,6 +62,9 @@ func _process(delta: float):
 	sprite.position = lerp(sprite.position, sprite_target_position, speed)
 	rotation_degrees = lerp(rotation_degrees, target_rotation_degrees,
 							speed / 2)
+	
+	speed = TRANSITION_SPEED * delta
+	modulate.a = lerp(modulate.a, target_opacity, speed)
 	
 	if not Player.dragged_card:
 		if Player.hovered_cards:

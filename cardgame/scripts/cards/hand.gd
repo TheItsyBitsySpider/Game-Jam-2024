@@ -49,6 +49,12 @@ func add(card: BaseCard):
 		card.position.x = 0
 		card.global_position.y = 0
 		card.target_position = card.position
+		if card.cost <= Main.puppet.current_energy:
+			card.modulate.a = 1
+			card.target_opacity = 1
+		else:
+			card.modulate.a = 0.6
+			card.target_opacity = 0.6
 		cards.append(card)
 		draw()
 

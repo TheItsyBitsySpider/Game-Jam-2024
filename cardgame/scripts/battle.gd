@@ -51,6 +51,29 @@ func _ready():
 func _process(delta: float):
 	var speed = LABEL_TRANSITION_SPEED * delta
 	
+	var num_unplayable = 0
+	for card in Player.hand.cards:
+		if card.cost > Main.puppet.current_energy:
+			num_unplayable += 1
+	
+	var font_colors = [
+		"font_disabled_color",
+		"font_hover_pressed_color",
+		"font_hover_color",
+		"font_pressed_color",
+		"font_focus_color",
+		"font_color"]
+	
+	if num_unplayable == len(Player.hand.cards):
+		var color = Battle.LABEL_ACTIVE_COLOR
+		color = Color(color.x, color.y, color.z)
+		for font_color in font_colors:
+			end_turn_button.add_theme_color_override(font_color, color)
+	else:
+		for font_color in font_colors:
+			end_turn_button.remove_theme_color_override(font_color)
+	
+	
 	deck_label_color = lerp(deck_label_color, deck_label_target_color, speed)
 	discard_label_color = lerp(discard_label_color, discard_label_target_color,
 							   speed)

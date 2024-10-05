@@ -13,7 +13,6 @@ static func load_cards():
 		var json = JSON.parse_string(file.get_as_text())
 		var name = json["name"]
 		data[name] = json
-		data[name]["texture"] = load(data[name]["texture"])
 		data[name]["ability"] = load(data[name]["ability"])
 	print("Loaded " + str(len(data)) + " cards.")
 

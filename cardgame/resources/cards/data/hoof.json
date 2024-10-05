@@ -1,6 +1,6 @@
 {
 	"name": "Hoof",
 	"cost": 1,
-	"texture": "res://resources/cards/textures/hoof.png",
-	"ability": "res://scripts/cards/card_effects/hoof.gd"
+	"ability": "res://scripts/cards/card_effects/hoof.gd",
+	"description": "Deal 3 damage.\nCost: 1 [color=#b38b2b]Energy[/color]"
 }

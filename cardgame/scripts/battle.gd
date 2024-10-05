@@ -73,7 +73,6 @@ func _process(delta: float):
 		for font_color in font_colors:
 			end_turn_button.remove_theme_color_override(font_color)
 	
-	
 	deck_label_color = lerp(deck_label_color, deck_label_target_color, speed)
 	discard_label_color = lerp(discard_label_color, discard_label_target_color,
 							   speed)

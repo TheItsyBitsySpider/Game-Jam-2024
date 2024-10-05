@@ -1,6 +1,6 @@
 {
 	"name": "Roundhouse Kick",
 	"cost": 2,
-	"texture": "res://resources/cards/textures/roundhouse_kick.png",
-	"ability": "res://scripts/cards/card_effects/roundhouse_kick.gd"
+	"ability": "res://scripts/cards/card_effects/roundhouse_kick.gd",
+	"description": "Deal 5 damage. Apply 2 [color=#b38b2b]Vulnerable[/color].\nCost: 1 [color=#b38b2b]Energy[/color]"
 }

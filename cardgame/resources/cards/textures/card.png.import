@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dunckmuaex6g5"
-path="res://.godot/imported/roundhouse_kick.png-8ca2bbc5ac131aec5414bb5817392366.ctex"
+uid="uid://c1vogi216eq4f"
+path="res://.godot/imported/card.png-7b94adf3c0462798049f1aca904d6920.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/cards/textures/roundhouse_kick.png"
-dest_files=["res://.godot/imported/roundhouse_kick.png-8ca2bbc5ac131aec5414bb5817392366.ctex"]
+source_file="res://resources/cards/textures/card.png"
+dest_files=["res://.godot/imported/card.png-7b94adf3c0462798049f1aca904d6920.ctex"]
 
 [params]
 

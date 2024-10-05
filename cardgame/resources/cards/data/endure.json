@@ -1,6 +1,6 @@
 {
 	"name": "Endure",
 	"cost": 1,
-	"texture": "res://resources/cards/textures/endure.png",
-	"ability": "res://scripts/cards/card_effects/endure.gd"
+	"ability": "res://scripts/cards/card_effects/endure.gd",
+	"description": "Gain 3 [color=#b38b2b]Block[/color].\nCost: 1 [color=#b38b2b]Energy[/color]"
 }

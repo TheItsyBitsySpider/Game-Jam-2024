@@ -9,6 +9,8 @@ const WIDTH: int = 136
 const HEIGHT: int = 175
 
 var sprite: Sprite2D
+var title_label: RichTextLabel
+var description_label: RichTextLabel
 var area: Area2D
 var collision_shape: CollisionShape2D
 
@@ -38,9 +40,14 @@ func setup(data: Dictionary):
 	self.data = data
 	
 	sprite = get_node("Sprite2D")
-	sprite.texture = texture
 	sprite.scale *= min(float(WIDTH) / sprite.texture.get_width(),
 						float(HEIGHT) / sprite.texture.get_height())
+	
+	var container_path = "Sprite2D/MarginContainer/VBoxContainer/"
+	title_label = get_node(container_path + "Title")
+	description_label = get_node(container_path + "Description")
+	title_label.text = "[center][color=#b38b2b]" + alias
+	description_label.text = "[center]" + data["description"]
 	
 	area = get_node("Area2D")
 	area.connect("mouse_entered", _on_mouse_entered)

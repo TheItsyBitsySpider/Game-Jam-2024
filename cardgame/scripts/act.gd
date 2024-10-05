@@ -85,8 +85,8 @@ func _process(delta: float):
 			Main.puppet.animation_tree["parameters/blend_position"] = 0
 		
 		Main.puppet.position.x = max(Main.puppet.position.x, 0)
-		Player.hand.position.x = max(Player.hand.position.x, 0)
-		Player.hand.target_position.x = max(Player.hand.target_position.x, 0)
+		Player.hand.position.x = max(Player.hand.position.x, Main.screen_size.x / 4)
+		Player.hand.target_position.x = max(Player.hand.target_position.x, Main.screen_size.x / 4)
 		
 		var screen_size = Main.screen_size
 		Main.camera.position.x = Main.puppet.position.x + screen_size.x / 4

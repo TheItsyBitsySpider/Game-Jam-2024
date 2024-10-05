@@ -4,6 +4,10 @@ extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/battle.tscn")
 
+const LABEL_TRANSITION_SPEED: int = 1
+const LABEL_DEFAULT_COLOR: Vector3 = Vector3(1, 1, 1)
+const LABEL_ACTIVE_COLOR: Vector3 = Vector3(0.702, 0.545, 0.169)
+
 @onready var deck_label: RichTextLabel = %DeckSize
 @onready var discard_label: RichTextLabel = %DiscardPileSize
 @onready var energy_label: RichTextLabel = %Energy
@@ -16,6 +20,12 @@ var turn_order: Array[Node2D]
 var turn: int
 
 var post_dialogue: String
+
+var deck_label_color: Vector3 = LABEL_DEFAULT_COLOR
+var deck_label_target_color: Vector3 = LABEL_DEFAULT_COLOR
+
+var discard_label_color: Vector3 = LABEL_DEFAULT_COLOR
+var discard_label_target_color: Vector3 = LABEL_DEFAULT_COLOR
 
 func _init():
 	_shuffle_deck(Player.deck)
@@ -38,6 +48,18 @@ func _ready():
 	
 	turn_order.front().ping()
 
+func _process(delta: float):
+	var speed = LABEL_TRANSITION_SPEED * delta
+	
+	deck_label_color = lerp(deck_label_color, deck_label_target_color, speed)
+	discard_label_color = lerp(discard_label_color, discard_label_target_color,
+							   speed)
+	
+	deck_label.add_theme_color_override("default_color", Color(
+		deck_label_color.x, deck_label_color.y, deck_label_color.z))
+	discard_label.add_theme_color_override("default_color", Color(
+		discard_label_color.x, discard_label_color.y, discard_label_color.z))
+
 func _on_end_turn_button_pressed():
 	next_turn()
 
@@ -51,10 +73,10 @@ func erase_combatant(character: Node2D):
 		Main.act.end_battle()
 
 func _update_deck_label():
-	deck_label.text = ' '.join(["Deck:", len(deck)])
+	deck_label.text = str(len(deck))
 
 func _update_discard_label():
-	discard_label.text = ' '.join(["Discard:", len(discard)])
+	discard_label.text = str(len(discard))
 
 func update_energy_label(current: int, total: int):
 	energy_label.text = ' '.join(["Energy:", current, "/", total])
@@ -67,8 +89,17 @@ func pop_deck() -> BaseCard:
 	
 	var card = deck.pop_back()
 	_update_deck_label()
+	
+	deck_label_color = LABEL_ACTIVE_COLOR
+	deck_label.add_theme_color_override("default_color", Color(
+		LABEL_ACTIVE_COLOR.x, LABEL_ACTIVE_COLOR.y, LABEL_ACTIVE_COLOR.z))
+	
 	return card
 
 func discard_card(card: BaseCard):
 	discard.append(card)
 	_update_discard_label()
+	
+	discard_label_color = LABEL_ACTIVE_COLOR
+	discard_label.add_theme_color_override("default_color", Color(
+		LABEL_ACTIVE_COLOR.x, LABEL_ACTIVE_COLOR.y, LABEL_ACTIVE_COLOR.z))

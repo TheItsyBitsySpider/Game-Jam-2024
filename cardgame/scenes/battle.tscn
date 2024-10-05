@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://diiw15ga6j62h"]
+[gd_scene load_steps=14 format=3 uid="uid://diiw15ga6j62h"]
 
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_uet7q"]
+[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="2_vb2bd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_le6ds"]
 
@@ -36,9 +37,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 16
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="DeckSize" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
@@ -50,7 +51,8 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 24
+theme_override_fonts/normal_font = ExtResource("2_vb2bd")
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
@@ -102,7 +104,8 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 24
+theme_override_fonts/normal_font = ExtResource("2_vb2bd")
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

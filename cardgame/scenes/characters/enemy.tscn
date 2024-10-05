@@ -47,6 +47,7 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="IntentExplanation"]
 modulate = Color(1, 1, 1, 0.215686)
+layout_mode = 0
 offset_left = 97.0
 offset_top = -82.0
 offset_right = 304.0
@@ -54,6 +55,7 @@ offset_bottom = 91.0
 texture = SubResource("GradientTexture1D_ocfdr")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="IntentExplanation"]
+layout_mode = 0
 offset_left = 99.0
 offset_top = -82.0
 offset_right = 304.0

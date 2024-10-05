@@ -4,7 +4,7 @@ extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/act.tscn")
 
-const PUPPET_SPEED: int = 500
+const PUPPET_SPEED: int = 800
 
 @onready var background: Sprite2D = %Background
 

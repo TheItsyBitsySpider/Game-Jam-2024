@@ -131,11 +131,13 @@ mouse_filter = 2
 z_index = 10
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_top = 256
+theme_override_constants/margin_top = 128
 theme_override_constants/margin_right = 512
 
 [node name="Portrait" type="TextureRect" parent="CanvasLayer2/PortraitContainer/MarginContainer"]
 unique_name_in_owner = true
 z_index = 10
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 mouse_filter = 2
+expand_mode = 3

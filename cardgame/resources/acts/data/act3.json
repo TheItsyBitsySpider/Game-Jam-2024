@@ -1,6 +1,7 @@
 {
 	"index": 2,
 	"background": "res://resources/environment/backgrounds/background.png",
+	"objects": [],
 	"triggers": [
 		{
 			"action": "start_dialogue",

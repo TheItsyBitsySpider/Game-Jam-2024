@@ -1,6 +1,13 @@
 {
 	"index": 0,
 	"background": "res://resources/environment/backgrounds/background.png",
+	"objects": [
+		{
+			"texture": "res://resources/characters/darling.png",
+			"position": 576,
+			"flip_h": true
+		}
+	],
 	"triggers": [
 		{
 			"action": "start_dialogue",
@@ -11,7 +18,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 400,
+			"position": 2000,
 			"args": {
 				"encounters": [["Thornpawn"]],
 				"post_dialogue": "bedroom_defeated_1"
@@ -19,7 +26,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 800,
+			"position": 2400,
 			"args": {
 				"encounters": [["Thornpawn"]],
 				"post_dialogue": "bedroom_defeated_2"
@@ -27,7 +34,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 1200,
+			"position": 2800,
 			"args": {
 				"encounters": [["Abysshop"]],
 				"post_dialogue": "bedroom_defeated_3"
@@ -35,7 +42,7 @@
 		},
 		{
 			"action": "next_act",
-			"position": 1600,
+			"position": 3200,
 			"args": {}
 		}
 	]

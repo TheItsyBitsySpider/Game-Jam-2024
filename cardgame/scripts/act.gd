@@ -31,6 +31,14 @@ func _ready():
 	Main.camera.position.x = Main.puppet.position.x + Main.screen_size.x / 4
 	Main.camera.target_position.x = Main.camera.position.x
 	
+	for object in data["objects"]:
+		var node = Sprite2D.new()
+		node.texture = object["texture"]
+		node.scale = Vector2(.5, .5)
+		node.position.x = object["position"]
+		node.flip_h = object["flip_h"]
+		add_child(node)
+	
 	for trigger in data["triggers"]:
 		var node = Trigger.SCENE.instantiate()
 		node.position.x = trigger["position"]

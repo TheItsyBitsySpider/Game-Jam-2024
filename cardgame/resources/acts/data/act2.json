@@ -14,23 +14,23 @@
 			"position": 400,
 			"args": {
 				"encounters": [["Thornpawn"]],
-				"post_dialogue": "bedroom_defeated_1"
+				"post_dialogue": "dollhouse_defeated_1"
 			}
 		},
 		{
 			"action": "start_battle",
 			"position": 800,
 			"args": {
-				"encounters": [["Thornpawn"]],
-				"post_dialogue": "bedroom_defeated_2"
+				"encounters": [["Abysshop"]],
+				"post_dialogue": "dollhouse_defeated_2"
 			}
 		},
 		{
 			"action": "start_battle",
 			"position": 1200,
 			"args": {
-				"encounters": [["Thornpawn"]],
-				"post_dialogue": "bedroom_defeated_3"
+				"encounters": [["Wyrmknight"]],
+				"post_dialogue": "dollhouse_defeated_3"
 			}
 		},
 		{

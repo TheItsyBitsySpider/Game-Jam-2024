@@ -29,7 +29,7 @@
 			"action": "start_battle",
 			"position": 1200,
 			"args": {
-				"encounters": [["Thornpawn"]],
+				"encounters": [["Abysshop"]],
 				"post_dialogue": "bedroom_defeated_3"
 			}
 		},

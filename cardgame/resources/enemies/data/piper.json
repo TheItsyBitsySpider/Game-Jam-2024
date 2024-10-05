@@ -1,0 +1,10 @@
+{
+	"name": "Piper",
+	"texture": "res://resources/enemies/textures/wyrmknight.png",
+	"health": 36,
+	"random_actions": true,
+	"actions": [
+		["attack", 12, "puppet"],
+		["defend", 10, "self"]
+	]
+}

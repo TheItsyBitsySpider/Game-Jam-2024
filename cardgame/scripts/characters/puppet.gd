@@ -5,6 +5,8 @@ extends Node2D
 const SCENE: PackedScene = preload("res://scenes/characters/puppet.tscn")
 
 @onready var character: Character = $Character
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var sprite: Sprite2D = $Sprite2D
 
 var _current_energy: int
 var current_energy: int:

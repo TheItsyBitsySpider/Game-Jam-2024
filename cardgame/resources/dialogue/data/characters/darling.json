@@ -1,6 +1,6 @@
 {
 	"name": "Darling",
-	"texture": "res://resources/enemies/textures/abysshop.png",
+	"texture": "res://resources/characters/darling.png",
 	"font_style": "res://resources/fonts/darling.ttf",
 	"font_size": 21,
 	"typewriter_speed": 0.04

@@ -59,12 +59,22 @@ func _process(delta: float):
 		
 		if moving_right:
 			Main.puppet.position.x += speed
+			Main.puppet.animation_tree["parameters/blend_position"] = 1
+			Main.puppet.sprite.flip_h = false
 			Player.hand.position.x += speed
 			Player.hand.target_position.x += speed
 		elif moving_left:
 			Main.puppet.position.x -= speed
+			Main.puppet.animation_tree["parameters/blend_position"] = -1
+			Main.puppet.sprite.flip_h = true
 			Player.hand.position.x -= speed
 			Player.hand.target_position.x -= speed
+		else:
+			if Main.puppet.animation_tree["parameters/blend_position"] == 1:
+				Main.puppet.sprite.flip_h = false
+			elif  Main.puppet.animation_tree["parameters/blend_position"] == -1:
+				Main.puppet.sprite.flip_h = true
+			Main.puppet.animation_tree["parameters/blend_position"] = 0
 		
 		var screen_size = Main.screen_size
 		Main.camera.position.x = Main.puppet.position.x + screen_size.x / 4
@@ -72,6 +82,7 @@ func _process(delta: float):
 
 func start_dialogue(args: Dictionary):
 	in_dialogue = true
+	Main.puppet.animation_tree["parameters/blend_position"] = 0
 	dialogue = DialogueDatabase.create_dialogue(args["dialogue"])
 	add_child(dialogue)
 
@@ -85,6 +96,8 @@ func end_dialogue():
 
 func start_battle(args: Dictionary):
 	in_battle = true
+	Main.puppet.sprite.flip_h = false
+	Main.puppet.animation_tree["parameters/blend_position"] = 0
 	
 	Main.world_bgm_player.fade_speed = 0.1
 	Main.battle_bgm_player.fade_speed = 3

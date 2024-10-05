@@ -1,0 +1,21 @@
+{
+	"index": 2,
+	"background": "res://resources/environment/backgrounds/background.png",
+	"triggers": [
+		{
+			"action": "start_dialogue",
+			"position": 300,
+			"args": {
+				"dialogue": "piper"
+			}
+		},
+		{
+			"action": "start_battle",
+			"position": 300,
+			"args": {
+				"encounters": [["Piper"]],
+				"post_dialogue": "bedroom_defeated_1"
+			}
+		}
+	]
+}

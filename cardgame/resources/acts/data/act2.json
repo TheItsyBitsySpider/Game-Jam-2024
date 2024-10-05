@@ -12,7 +12,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 400,
+			"position": 800,
 			"args": {
 				"encounters": [["Thornpawn"]],
 				"post_dialogue": "dollhouse_defeated_1"
@@ -20,7 +20,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 800,
+			"position": 1600,
 			"args": {
 				"encounters": [["Abysshop"]],
 				"post_dialogue": "dollhouse_defeated_2"
@@ -28,7 +28,7 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 1200,
+			"position": 2400,
 			"args": {
 				"encounters": [["Wyrmknight"]],
 				"post_dialogue": "dollhouse_defeated_3"
@@ -36,7 +36,7 @@
 		},
 		{
 			"action": "next_act",
-			"position": 1600,
+			"position": 3200,
 			"args": {}
 		}
 	]

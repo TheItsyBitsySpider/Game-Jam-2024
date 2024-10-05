@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://l1jsp3pnumwf"]
 
 [ext_resource type="Script" path="res://scripts/base_debuff.gd" id="1_kf45c"]
-[ext_resource type="Texture2D" uid="uid://btcp2pam830xe" path="res://resources/debuffs/textures/vulnerable.png" id="2_fdp6k"]
 [ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="3_4de7e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fsos4"]
+load_path = "res://.godot/imported/vulnerable.png-7a77c6a9fd3a4fab958c9e1628ba8527.ctex"
 
 [sub_resource type="Gradient" id="Gradient_7rpk8"]
 
@@ -22,7 +24,7 @@ offset_left = -27.0
 offset_right = 82.0
 offset_bottom = 109.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_fdp6k")
+texture = SubResource("CompressedTexture2D_fsos4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

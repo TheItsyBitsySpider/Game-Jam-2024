@@ -124,6 +124,7 @@ func _update_status(amt: int, status, status_img: String, explanation: String):
 		status_holder.add_child(status)
 		status.text.text = str(amt)
 		status.sprite.texture = STATUS_IMAGES[status_img]
+		status.sprite.scale = Vector2(.1, .1)
 		status.status_explanation_text.text = explanation
 	elif amt > 0 and status != null:
 		status.text.text = str(amt)

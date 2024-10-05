@@ -73,7 +73,6 @@ func _ready():
 	target_opacity = 1
 	blackout_target_opacity = 1
 	dialogue_index = 0
-	
 
 func _process(delta: float):
 	if abs(blackout.modulate.a - blackout_target_opacity) > 0.01:

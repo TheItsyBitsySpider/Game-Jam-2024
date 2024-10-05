@@ -15,6 +15,8 @@ static func load_acts():
 		var index = int(json["index"])
 		data[index] = json
 		data[index]["background"] = load(data[index]["background"])
+		for object in data[index]["objects"]:
+			object["texture"] = load(object["texture"])
 	print("Loaded " + str(len(data)) + " acts.")
 
 static func create_act(index: int = 0) -> Act:

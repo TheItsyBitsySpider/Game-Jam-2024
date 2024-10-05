@@ -12,6 +12,8 @@ const BUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "buff.png")
 @onready var character: Character = $Character
 @onready var intent_sprite: Sprite2D = $UpcomingTurnSprite
 @onready var intent_text: RichTextLabel = $RichTextLabel
+@onready var intent_explanation: Control = $IntentExplanation
+@onready var intent_explanation_text: RichTextLabel = $IntentExplanation/RichTextLabel2
 
 var actions: Array[EnemyAction]
 var upcoming_action: EnemyAction
@@ -59,9 +61,11 @@ func _on_slain():
 
 func _on_mouse_entered():
 	Player.hovered_enemy = self
+	intent_explanation.visible = true
 
 func _on_mouse_exited():
 	Player.hovered_enemy = null
+	intent_explanation.visible = false
 
 func determine_intent():
 	if random_actions:
@@ -70,6 +74,9 @@ func determine_intent():
 		upcoming_action = actions[action_index % len(actions)]
 		action_index += 1
 	update_intent_label()
+
+func _explain_intent():
+	intent_explanation.visible = true
 
 func _progress_debuffs():
 	character.weak -= 1
@@ -100,7 +107,10 @@ func update_intent_label():
 		var upcoming_damage = upcoming_action.amount + character.strength
 		intent_sprite.texture = ATTACK_INTENT_TEXTURE
 		intent_text.text = "[center]" + str(upcoming_damage)
+		intent_explanation_text.text = "[center]" + "The enemy intends to attack you for " + str(upcoming_damage) + " damage."
 	elif action.get_method() == "defend":
 		intent_sprite.texture = DEFEND_INTENT_TEXTURE
+		intent_explanation_text.text = "[center]" + "The enemy intends to defend itself."
 	else:
 		intent_sprite.texture = BUFF_INTENT_TEXTURE
+		intent_explanation_text.text = "[center]" + "The enemy intends to buff itself."

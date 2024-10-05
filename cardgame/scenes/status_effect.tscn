@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://l1jsp3pnumwf"]
+
+[ext_resource type="Script" path="res://scripts/base_debuff.gd" id="1_kf45c"]
+[ext_resource type="Texture2D" uid="uid://btcp2pam830xe" path="res://resources/debuffs/textures/vulnerable.png" id="2_fdp6k"]
+[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="3_4de7e"]
+
+[sub_resource type="Gradient" id="Gradient_7rpk8"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_336mp"]
+gradient = SubResource("Gradient_7rpk8")
+width = 1
+
+[node name="StatusEffect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_kf45c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -27.0
+offset_right = 82.0
+offset_bottom = 109.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fdp6k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = 29.0
+offset_right = 44.0
+offset_bottom = 69.0
+theme_override_fonts/normal_font = ExtResource("3_4de7e")
+text = "1"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -139.0
+offset_top = -74.0
+offset_right = -99.0
+offset_bottom = -34.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = -68.0
+offset_right = 99.0
+offset_bottom = 111.0
+texture = SubResource("GradientTexture1D_336mp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = 3.0
+offset_right = 97.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_4de7e")
+text = "You are vulnerable, making you take 50% more damage for the next 1 round"
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]

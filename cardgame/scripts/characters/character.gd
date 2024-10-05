@@ -3,13 +3,30 @@ class_name Character
 extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/characters/character.tscn")
+const STATUS_SCENE: PackedScene = preload("res://scenes/status_effect.tscn")
+const STATUS_IMAGES: Dictionary = {
+	"vulnerable": preload("res://resources/debuffs/textures/vulnerable.png"),
+	"weakness": preload("res://resources/debuffs/textures/weakness.png"),
+	"strength": preload("res://resources/buffs/textures/strength.png")
+}
+
+const STATUS_EXPLANATIONS: Dictionary = {
+	"vulnerable": "They are vulnerable, and will take 50% more damage for the next ",
+	"weakness": "They are weakened, and will deal 25% less damage for the next ",
+	"strength": "They are strengthed, and will deal an extra "
+}
 
 @export var override_texture: Resource
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var area: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
-@onready var label: RichTextLabel = $RichTextLabel
+@onready var label: RichTextLabel = $VBoxContainer/RichTextLabel
+@onready var status_holder: HBoxContainer = $HBoxContainer
+
+var _weakness_debuff
+var _vulnerable_debuff
+var _strength_buff
 
 signal slain
 
@@ -52,9 +69,9 @@ var strength: int:
 	get:
 		return _strength
 	set(val):
-		# NOTE: Can have negative strength as a potential debuff
 		_strength = val
-		# TODO: Symbols for strength and other buffs, as in Slay the Spire
+		var explanation = STATUS_EXPLANATIONS["strength"] + str(_strength) + (" damage.")
+		_strength_buff = _update_status(_strength, _strength_buff, "strength", explanation)
 		_update_label()
 
 var _weak: int
@@ -63,6 +80,8 @@ var weak: int:
 		return _weak
 	set(val):
 		_weak = clamp(val, 0, INF)
+		var explanation = STATUS_EXPLANATIONS["weakness"] + str(_weak) + (" turn." if _weak == 1 else " turns.")
+		_weakness_debuff = _update_status(_weak, _weakness_debuff, "weakness", explanation)
 		_update_label()
 
 var _vulnerable: int
@@ -71,6 +90,8 @@ var vulnerable: int:
 		return _vulnerable
 	set(val):
 		_vulnerable = clamp(val, 0, INF)
+		var explanation = STATUS_EXPLANATIONS["vulnerable"] + str(_vulnerable) + (" turn." if _vulnerable == 1 else " turns.")
+		_vulnerable_debuff = _update_status(_vulnerable, _vulnerable_debuff, "vulnerable", explanation)
 		_update_label()
 
 var _phantasia: int
@@ -95,8 +116,20 @@ func _update_label():
 	label.text = '\n'.join([
 		' '.join(["[center]", alias]),
 		' '.join(["HP:", current_health, "/", total_health]),
-		' '.join(["Defense:", defense]),
-		' '.join(["Strength:", strength]),
-		' '.join(["Weak:", weak]),
-		' '.join(["Vulnerable:", vulnerable]),
-		' '.join(["Phantasia:", phantasia])])
+		' '.join(["Defense:", defense])])
+
+func _update_status(amt: int, status, status_img: String, explanation: String):
+	if amt > 0 and status == null:
+		status = STATUS_SCENE.instantiate()
+		status_holder.add_child(status)
+		status.text.text = str(amt)
+		status.sprite.texture = STATUS_IMAGES[status_img]
+		status.status_explanation_text.text = explanation
+	elif amt > 0 and status != null:
+		status.text.text = str(amt)
+		status.status_explanation_text.text = explanation
+	elif amt == 0 and status != null:
+		status_holder.remove_child(status)
+		status.queue_free()
+		status = null
+	return status

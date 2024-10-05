@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1f42jgkoqngr"]
+[gd_scene load_steps=6 format=3 uid="uid://c1f42jgkoqngr"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_d78xy"]
 [ext_resource type="PackedScene" uid="uid://holib21ftpsf" path="res://scenes/characters/character.tscn" id="2_p1bbq"]
+[ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="3_2fqhb"]
+
+[sub_resource type="Gradient" id="Gradient_o5t3m"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ocfdr"]
+gradient = SubResource("Gradient_o5t3m")
+width = 1
 
 [node name="Enemy" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_d78xy")
@@ -30,3 +37,27 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="IntentExplanation" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="IntentExplanation"]
+modulate = Color(1, 1, 1, 0.215686)
+offset_left = 97.0
+offset_top = -82.0
+offset_right = 304.0
+offset_bottom = 91.0
+texture = SubResource("GradientTexture1D_ocfdr")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="IntentExplanation"]
+offset_left = 99.0
+offset_top = -82.0
+offset_right = 304.0
+offset_bottom = 80.0
+theme_override_fonts/normal_font = ExtResource("3_2fqhb")
+bbcode_enabled = true
+text = "[center]The enemy intends to attack you for 3 damage"

@@ -13,6 +13,7 @@ func _init(action: String, amount: int, target: Node2D, stats: Character):
 
 func attack():
 	if target is Puppet or Enemy:
+		stats.sprite.position.x = -48
 		if stats.weak > 0:
 			amount = ceil(amount * .75)
 		target.character.hit(amount + stats.strength)

@@ -23,6 +23,7 @@ var current_energy: int:
 				card.target_opacity = 0.6
 		
 		if Main.battle:
+			Main.battle.energy_label_color = Battle.LABEL_ACTIVE_COLOR
 			Main.battle.update_energy_label(current_energy, total_energy)
 
 var _total_energy: int

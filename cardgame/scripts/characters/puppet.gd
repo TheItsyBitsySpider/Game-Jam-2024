@@ -41,8 +41,8 @@ var sprite_target_position: float
 
 func _ready():
 	character.alias = "A5"
-	character.current_health = 50
-	character.total_health = 50
+	character.current_health = 1
+	character.total_health = 1
 	character.strength = 0
 	
 	current_energy = 3
@@ -59,9 +59,9 @@ func _process(delta: float):
 	sprite.position.x = lerp(sprite.position.x, sprite_target_position, speed)
 
 func _on_slain():
-	# TODO: Game over screen
-	print("Game over.")
-	queue_free()
+	var executable_path = OS.get_executable_path()
+	OS.execute(executable_path, [])
+	get_tree().quit()
 
 func _on_mouse_entered():
 	Player.hovered_puppet = self

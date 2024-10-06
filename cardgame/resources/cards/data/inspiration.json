@@ -1,6 +1,6 @@
 {
 	"name": "Inspiration",
-	"cost": 1,
+	"cost": 0,
 	"ability": "res://scripts/cards/card_effects/inspiration.gd",
-	"description": "Deal 1 card.\nCost: 1 [color=#b38b2b]Energy[/color]"
+	"description": "Deal 1 card.\nCost: 0 [color=#b38b2b]Energy[/color]"
 }

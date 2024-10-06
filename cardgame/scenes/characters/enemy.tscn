@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1f42jgkoqngr"]
+[gd_scene load_steps=7 format=3 uid="uid://c1f42jgkoqngr"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_d78xy"]
 [ext_resource type="PackedScene" uid="uid://holib21ftpsf" path="res://scenes/characters/character.tscn" id="2_p1bbq"]
 [ext_resource type="FontFile" uid="uid://broarwskjcx74" path="res://resources/fonts/default.ttf" id="3_2fqhb"]
+[ext_resource type="Script" path="res://scripts/explanation_box.gd" id="3_figxa"]
 
 [sub_resource type="Gradient" id="Gradient_o5t3m"]
 
@@ -15,20 +16,25 @@ script = ExtResource("1_d78xy")
 
 [node name="Character" parent="." instance=ExtResource("2_p1bbq")]
 
-[node name="UpcomingTurnSprite" type="Sprite2D" parent="."]
-position = Vector2(-0.5, -186)
+[node name="UpcomingTurnSprite" type="TextureRect" parent="."]
+offset_left = -37.0
+offset_top = -195.0
+offset_right = -37.0
+offset_bottom = -195.0
+scale = Vector2(0.125, 0.125)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -174.0
-offset_right = -7.0
-offset_bottom = -140.0
+offset_left = -45.0
+offset_top = -159.0
+offset_right = -18.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
@@ -42,24 +48,33 @@ autowrap_mode = 0
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = 107.0
+offset_top = -16.0
+offset_right = 147.0
+offset_bottom = 24.0
+mouse_filter = 2
+script = ExtResource("3_figxa")
 
 [node name="TextureRect" type="TextureRect" parent="IntentExplanation"]
 modulate = Color(1, 1, 1, 0.215686)
 layout_mode = 0
-offset_left = 97.0
-offset_top = -82.0
-offset_right = 304.0
-offset_bottom = 91.0
+offset_left = -17.0
+offset_top = -75.0
+offset_right = 190.0
+offset_bottom = 98.0
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_ocfdr")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="IntentExplanation"]
 layout_mode = 0
-offset_left = 99.0
-offset_top = -82.0
-offset_right = 304.0
-offset_bottom = 80.0
+offset_left = -15.0
+offset_top = -75.0
+offset_right = 190.0
+offset_bottom = 87.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_2fqhb")
 bbcode_enabled = true
 text = "[center]The enemy intends to attack you for 3 damage"
+
+[connection signal="mouse_entered" from="UpcomingTurnSprite" to="IntentExplanation" method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="UpcomingTurnSprite" to="IntentExplanation" method="_on_texture_rect_mouse_exited"]

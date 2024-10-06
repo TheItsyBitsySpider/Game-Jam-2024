@@ -100,11 +100,12 @@ func start_dialogue(args: Dictionary):
 
 func end_dialogue():
 	in_dialogue = false
-	dialogue.blackout_target_opacity = 0
-	dialogue.canvas_layer.visible = false
-	await dialogue.reached_blackout_target_opacity
-	dialogue.queue_free()
-	dialogue = null
+	var old_dialogue = dialogue
+	old_dialogue.blackout_target_opacity = 0
+	old_dialogue.canvas_layer.visible = false
+	await old_dialogue.reached_blackout_target_opacity
+	old_dialogue.queue_free()
+	old_dialogue = null
 
 func start_battle(args: Dictionary):
 	in_battle = true

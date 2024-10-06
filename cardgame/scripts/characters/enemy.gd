@@ -46,6 +46,9 @@ func setup():
 	character.sprite.texture = data["texture"]
 	character.sprite.scale = Vector2(.5, .5)
 	
+	character.collision_shape.shape = RectangleShape2D.new()
+	character.collision_shape.shape.size = character.sprite.texture.get_size() * 0.5
+	
 	for action in data["actions"]:
 		var type = action[0]
 		var amount = action[1]

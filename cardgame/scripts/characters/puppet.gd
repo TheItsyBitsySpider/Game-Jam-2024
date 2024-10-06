@@ -15,14 +15,12 @@ var current_energy: int:
 	set(val):
 		_current_energy = val
 		
-		var num_unplayable = 0
 		for card in Player.hand.cards:
 			if card.cost <= val:
 				card.modulate.a = 1
 				card.target_opacity = 1
 			else:
 				card.target_opacity = 0.6
-				num_unplayable += 1
 		
 		if Main.battle:
 			Main.battle.update_energy_label(current_energy, total_energy)

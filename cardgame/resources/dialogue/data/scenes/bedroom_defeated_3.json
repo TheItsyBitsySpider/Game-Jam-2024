@@ -1,4 +1,7 @@
 [
-	{"character_name": "A5", "dialogue": "Do I have any friends? I'm guessing at least one of the Dollhouse residents should be familiar with me, since [color=#b38b2b]Darling[/color] said they were waiting for me to come back. \nI'd have to leave first to return home…"},
-	{"character_name": "A5", "dialogue": "That person I remembered before seemed the closest to me. I can remember bits and pieces of them, and most of my memories include them. But only them. \nThe only time they weren’t smiling was when they were scowling at someone for getting one of my spare cookies from our baking sessions."}
+	{"character_name": "A5", "dialogue": "Do I have any friends? I'm guessing at least one of the\n[color=#b38b2b]Dollhouse[/color] residents should be familiar with me, since [color=#b38b2b]Darling[/color]\nsaid they were waiting for me to come back."},
+	{"character_name": "A5", "dialogue": "I'd have to leave first to return home..."},
+	{"character_name": "A5", "dialogue": "That person I remembered before seemed the closest to me. I\ncan remember bits and pieces of them, and most of my\nmemories include them. But only them."},
+	{"character_name": "A5", "dialogue": "The only time they weren’t smiling was when they were scowling\nat someone for getting one of my spare cookies from our baking\nsessions."},
+	{"character_name": "A5", "dialogue": "I teased them about it. They told me I should only give my\nspares to them. How silly."}
 ]

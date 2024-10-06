@@ -121,11 +121,19 @@ func start_battle(args: Dictionary):
 	battle = Battle.SCENE.instantiate() as Battle
 	
 	var encounter = args["encounters"].pick_random()
+	var assumed_width = 172
+	var encounter_width = len(encounter) * assumed_width
+	var center_position = Main.puppet.position.x + Main.screen_size.x / 2
+	var start_position = center_position - encounter_width / 2
+	
+	var idx = 0
 	for enemy_type in encounter:
 		var enemy = EnemyDatabase.create_enemy(enemy_type)
-		enemy.position.x = Main.puppet.position.x + Main.screen_size.x / 2
+		var taken_width = idx * assumed_width
+		enemy.position.x = start_position + taken_width + assumed_width / 2
 		battle.turn_order.append(enemy)
 		battle.add_child(enemy)
+		idx += 1
 	battle.turn_order.push_front(Main.puppet)
 	
 	battle.post_dialogue = args["post_dialogue"]

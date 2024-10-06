@@ -2,6 +2,9 @@ class_name HoofCard
 
 extends BaseCard
 
+func _init():
+	valid_target = "enemy"
+
 func play(character: Node2D):
 	if character is Enemy:
 		var played = super(character)

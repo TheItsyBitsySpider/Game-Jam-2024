@@ -55,6 +55,7 @@ func add(card: BaseCard):
 		else:
 			card.modulate.a = 0.6
 			card.target_opacity = 0.6
+		card.play_label.visible = false
 		cards.append(card)
 		draw()
 

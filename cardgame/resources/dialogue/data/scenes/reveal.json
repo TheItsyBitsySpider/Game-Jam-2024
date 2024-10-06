@@ -1,6 +1,8 @@
 [
 	{"character_name": "A5", "dialogue": "I can remember now. I remember everything..."},
-	{"character_name": "A5", "dialogue": "That special day, our happiest day... it was just the two of us. [color=#b38b2b]Piper[/color] and I were having the most fun I've ever had in a while. \nYet he had this strange, sad look in his eyes, like he had learned something terrible."},
-	{"character_name": "A5", "dialogue": "That day, he showed me the special present. It was a [color=#8d7aa2]book[/color], and inside, our names were written. It was a story about us, but the more I try to remember, the more it hurts. \nThe louder [color=#b38b2b]Piper[/color] read, the worse it hurt, and I couldn't hear anything he was saying."},
-	{"character_name": "A5", "dialogue": "I still don't remember most of that [color=#8d7aa2]book[/color], or if he ever finished reading it. The next day, he said he'd have a surprise for me."}
+	{"character_name": "A5", "dialogue": "That special day, our happiest day... it was just the two of us."},
+	{"character_name": "A5", "dialogue": "[color=#b38b2b]Piper[/color] and I were having the most fun we've ever had in a while.\nYet he had this strange, sad look in his eyes, like he had learned\nsomething terrible."},
+	{"character_name": "A5", "dialogue": "That day, he showed me the special present. It was a [color=#8d7aa2]book[/color], and\ninside, our names were written. It was a story about us, but the\nmore I try to remember, the more it hurts."},
+	{"character_name": "A5", "dialogue": "The louder [color=#b38b2b]Piper[/color] read, the worse it hurt, and I couldn't hear\nanything he was saying."},
+	{"character_name": "A5", "dialogue": "I still don't remember most of that [color=#8d7aa2]book[/color], or if he ever finished\nreading it. The next day, he said he'd have a surprise for me."}
 ]

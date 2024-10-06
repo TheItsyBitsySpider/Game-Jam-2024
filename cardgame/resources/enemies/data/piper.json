@@ -1,6 +1,6 @@
 {
 	"name": "Piper",
-	"texture": "res://resources/enemies/textures/wyrmknight.png",
+	"texture": "res://resources/characters/piper.png",
 	"health": 36,
 	"random_actions": true,
 	"actions": [

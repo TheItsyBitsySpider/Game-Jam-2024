@@ -1,6 +1,6 @@
 {
 	"name": "Piper",
-	"texture": "res://resources/enemies/textures/abysshop.png",
+	"texture": "res://resources/characters/piper.png",
 	"font_style": "res://resources/fonts/piper.ttf",
 	"font_size": 18,
 	"typewriter_speed": 0.02

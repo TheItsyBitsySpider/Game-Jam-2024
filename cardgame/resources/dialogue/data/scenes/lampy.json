@@ -1,13 +1,13 @@
 [
 	{"character_name": "Lampy", "dialogue": "..."},
-	{"character_name": "Protagonist", "dialogue": "Hey, what's the deal with you?"},
+	{"character_name": "A5", "dialogue": "Hey, what's the deal with you?"},
 	{"character_name": "Lampy", "dialogue": "...I feel so...extinguished"},
-	{"character_name": "Protagonist", "dialogue": "Aren't you supposed to be way more cheerful than this? \nDarling described you that way, at least."},
+	{"character_name": "A5", "dialogue": "Aren't you supposed to be way more cheerful than this? \nDarling described you that way, at least."},
 	{"character_name": "Lampy", "dialogue": "...I just don't feel like it."},
-	{"character_name": "Protagonist", "dialogue": "...Are you going to be okay?"},
+	{"character_name": "A5", "dialogue": "...Are you going to be okay?"},
 	{"character_name": "Lampy", "dialogue": "...I have to guard the door to Wonderland."},
-	{"character_name": "Protagonist", "dialogue": "Do you know why Wonderland is destabilizing? Are we going to die? Have you seen any bad guys come out?"},
+	{"character_name": "A5", "dialogue": "Do you know why Wonderland is destabilizing? Are we going to die? Have you seen any bad guys come out?"},
 	{"character_name": "Lampy", "dialogue": "The Piper..."},
-	{"character_name": "Protagonist", "dialogue": "Is that the bad guy?"},
+	{"character_name": "A5", "dialogue": "Is that the bad guy?"},
 	{"character_name": "Lampy", "dialogue": "Don't you remember the Piper? You two used to be best friends ... \nHe's out of control, [name]... It's because of the Phantasia. It's driving him totally mad. Can't you talk to him?."}
 ]

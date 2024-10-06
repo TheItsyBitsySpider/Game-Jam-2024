@@ -1,6 +1,6 @@
 {
 	"name": "Lampy",
-	"texture": "res://resources/enemies/textures/wyrmknight.png",
+	"texture": "res://resources/characters/lampy.png",
 	"font_style": "res://resources/fonts/lampy.ttf",
 	"font_size": 21,
 	"typewriter_speed": 0.07

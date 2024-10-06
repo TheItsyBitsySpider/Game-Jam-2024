@@ -1,7 +1,13 @@
 {
 	"index": 1,
 	"background": "res://resources/environment/backgrounds/dollhouse2bg.png",
-	"objects": [],
+	"objects": [
+		{
+			"texture": "res://resources/characters/lampy.png",
+			"position": 576,
+			"flip_h": true
+		}
+	],
 	"triggers": [
 		{
 			"action": "start_dialogue",
@@ -12,31 +18,31 @@
 		},
 		{
 			"action": "start_battle",
-			"position": 800,
+			"position": 2400,
 			"args": {
-				"encounters": [["Thornpawn"]],
+				"encounters": [["Thornpawn", "Thornpawn", "Thornpawn"], ["Thornpawn", "Wyrmknight", "Abysshop"], ["Wyrmknight", "Abysshop", "Abysshop"]],
 				"post_dialogue": "dollhouse_defeated_1"
 			}
 		},
 		{
 			"action": "start_battle",
-			"position": 1600,
+			"position": 3200,
 			"args": {
-				"encounters": [["Abysshop"]],
+				"encounters": [["Thornpawn", "Thornpawn", "Thornpawn"], ["Thornpawn", "Wyrmknight", "Abysshop"], ["Wyrmknight", "Abysshop", "Abysshop"]],
 				"post_dialogue": "dollhouse_defeated_2"
 			}
 		},
 		{
 			"action": "start_battle",
-			"position": 2400,
+			"position": 4000,
 			"args": {
-				"encounters": [["Wyrmknight"]],
+				"encounters": [["Thornpawn", "Thornpawn", "Thornpawn"], ["Thornpawn", "Wyrmknight", "Abysshop"], ["Wyrmknight", "Abysshop", "Abysshop"]],
 				"post_dialogue": "dollhouse_defeated_3"
 			}
 		},
 		{
 			"action": "next_act",
-			"position": 3200,
+			"position": 4800,
 			"args": {}
 		}
 	]

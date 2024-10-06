@@ -55,6 +55,31 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
+[node name="MarginContainer2" type="MarginContainer" parent="Sprite2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.0
+offset_top = -437.0
+offset_right = -272.0
+offset_bottom = -376.0
+grow_horizontal = 2
+theme_override_constants/margin_top = -164
+
+[node name="Play" type="RichTextLabel" parent="Sprite2D/MarginContainer2"]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.690196, 0.545098, 0.168627, 1)
+theme_override_fonts/normal_font = ExtResource("2_qirgr")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "PLAY!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

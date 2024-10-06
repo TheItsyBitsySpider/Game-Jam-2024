@@ -21,6 +21,9 @@ var turn: int
 
 var post_dialogue: String
 
+var energy_label_color: Vector3 = LABEL_DEFAULT_COLOR
+var energy_label_target_color: Vector3 = LABEL_DEFAULT_COLOR
+
 var deck_label_color: Vector3 = LABEL_DEFAULT_COLOR
 var deck_label_target_color: Vector3 = LABEL_DEFAULT_COLOR
 
@@ -49,8 +52,6 @@ func _ready():
 	turn_order.front().ping()
 
 func _process(delta: float):
-	var speed = LABEL_TRANSITION_SPEED * delta
-	
 	var num_unplayable = 0
 	for card in Player.hand.cards:
 		if card.cost > Main.puppet.current_energy:
@@ -73,10 +74,14 @@ func _process(delta: float):
 		for font_color in font_colors:
 			end_turn_button.remove_theme_color_override(font_color)
 	
-	deck_label_color = lerp(deck_label_color, deck_label_target_color, speed)
-	discard_label_color = lerp(discard_label_color, discard_label_target_color,
-							   speed)
+	var speed = LABEL_TRANSITION_SPEED * delta
 	
+	energy_label_color = lerp(energy_label_color, energy_label_target_color, speed)
+	deck_label_color = lerp(deck_label_color, deck_label_target_color, speed)
+	discard_label_color = lerp(discard_label_color, discard_label_target_color, speed)
+	
+	energy_label.add_theme_color_override("default_color", Color(
+		energy_label_color.x, energy_label_color.y, energy_label_color.z))
 	deck_label.add_theme_color_override("default_color", Color(
 		deck_label_color.x, deck_label_color.y, deck_label_color.z))
 	discard_label.add_theme_color_override("default_color", Color(
@@ -101,7 +106,7 @@ func _update_discard_label():
 	discard_label.text = str(len(discard))
 
 func update_energy_label(current: int, total: int):
-	energy_label.text = ''.join(["", current])
+	energy_label.text = ''.join([current, "/", total])
 
 func pop_deck() -> BaseCard:
 	if not deck:

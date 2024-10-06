@@ -3,6 +3,7 @@ class_name Puppet
 extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/characters/puppet.tscn")
+const SPEED: int = 5
 
 @onready var character: Character = $Character
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -23,6 +24,7 @@ var current_energy: int:
 				card.target_opacity = 0.6
 		
 		if Main.battle:
+			Main.battle.energy_label_color = Battle.LABEL_ACTIVE_COLOR
 			Main.battle.update_energy_label(current_energy, total_energy)
 
 var _total_energy: int
@@ -34,6 +36,8 @@ var total_energy: int:
 		
 		if Main.battle:
 			Main.battle.update_energy_label(current_energy, total_energy)
+
+var sprite_target_position: float
 
 func _ready():
 	character.alias = "A5"
@@ -49,6 +53,10 @@ func _ready():
 	character.area.connect("mouse_exited", _on_mouse_exited)
 	
 	position.x = -Main.screen_size.x / 4
+
+func _process(delta: float):
+	var speed = SPEED * delta
+	sprite.position.x = lerp(sprite.position.x, sprite_target_position, speed)
 
 func _on_slain():
 	# TODO: Game over screen

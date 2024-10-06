@@ -3,7 +3,9 @@ class_name Character
 extends Node2D
 
 const SCENE: PackedScene = preload("res://scenes/characters/character.tscn")
+
 const STATUS_SCENE: PackedScene = preload("res://scenes/status_effect.tscn")
+
 const STATUS_IMAGES: Dictionary = {
 	"vulnerable": preload("res://resources/debuffs/textures/vulnerable.png"),
 	"weakness": preload("res://resources/debuffs/textures/weakness.png"),
@@ -15,6 +17,8 @@ const STATUS_EXPLANATIONS: Dictionary = {
 	"weakness": "They are weakened, and will deal 25% less damage for the next ",
 	"strength": "They are strengthed, and will deal an extra "
 }
+
+const SPEED: int = 5
 
 @export var override_texture: Resource
 
@@ -28,6 +32,8 @@ const STATUS_EXPLANATIONS: Dictionary = {
 var _weakness_debuff
 var _vulnerable_debuff
 var _strength_buff
+
+var sprite_target_position: float
 
 signal slain
 
@@ -106,6 +112,10 @@ var phantasia: int:
 func _ready():
 	if override_texture:
 		sprite.texture = override_texture
+
+func _process(delta: float):
+	var speed = SPEED * delta
+	sprite.position.x = lerp(sprite.position.x, sprite_target_position, speed)
 
 func hit(damage: int):
 	if vulnerable > 0:

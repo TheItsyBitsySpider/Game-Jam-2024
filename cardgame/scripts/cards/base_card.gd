@@ -11,10 +11,12 @@ const HEIGHT: int = 175
 var sprite: Sprite2D
 var title_label: RichTextLabel
 var description_label: RichTextLabel
+var play_label: RichTextLabel
 var area: Area2D
 var collision_shape: CollisionShape2D
 
 var data: Dictionary
+var valid_target: String
 
 var alias: String:
 	get:
@@ -48,6 +50,8 @@ func setup(data: Dictionary):
 	description_label = get_node(container_path + "Description")
 	title_label.text = "[center][color=#b38b2b]" + alias
 	description_label.text = "[center]" + data["description"]
+	
+	play_label = get_node("%Play")
 	
 	area = get_node("Area2D")
 	area.connect("mouse_entered", _on_mouse_entered)

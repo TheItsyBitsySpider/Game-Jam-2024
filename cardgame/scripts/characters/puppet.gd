@@ -38,7 +38,7 @@ var total_energy: int:
 			Main.battle.update_energy_label(current_energy, total_energy)
 
 func _ready():
-	character.alias = "Puppet"
+	character.alias = "A5"
 	character.current_health = 50
 	character.total_health = 50
 	character.strength = 0

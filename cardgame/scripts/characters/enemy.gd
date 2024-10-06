@@ -44,7 +44,7 @@ func setup():
 	character.total_health = data["health"]
 	
 	character.sprite.texture = data["texture"]
-	character.sprite.scale = Vector2(.3, .3)
+	character.sprite.scale = Vector2(.5, .5)
 	
 	for action in data["actions"]:
 		var type = action[0]

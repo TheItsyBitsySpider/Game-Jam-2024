@@ -41,8 +41,8 @@ var sprite_target_position: float
 
 func _ready():
 	character.alias = "A5"
-	character.current_health = 1
-	character.total_health = 1
+	character.current_health = 50
+	character.total_health = 50
 	character.strength = 0
 	
 	current_energy = 3

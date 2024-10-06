@@ -1,7 +1,10 @@
 [
-	{"character_name": "A5", "dialogue": "[color=#b38b2b]Piper[/color] never talked about it, but... I think everyone disliked him for some reason. He always acted like he was fine with that. I can remember that a few days ago, we were having the most fun we've had in a while. It was the happiest I've ever seen him. \nHe told me that he had a special surprise for me, and he couldn't wait for me to get it."},
+	{"character_name": "A5", "dialogue": "[color=#b38b2b]Piper[/color] never talked about it, but... I think everyone disliked him\nfor some reason. He always acted like he was fine with that."},
+	{"character_name": "A5", "dialogue": "I can remember that a few days ago, we were having the most\nfun we've had in a while. It was the happiest I've ever seen him."},
+	{"character_name": "A5", "dialogue": "He told me that he had a special surprise for me, and he\ncouldn't wait for me to get it."},
 	{"character_name": "A5", "dialogue": "Then... he disappeared the next day."},
 	{"character_name": "A5", "dialogue": "I left [color=#b38b2b]Wonderland[/color] to go find him."},
-	{"character_name": "A5", "dialogue": "Did I do something wrong? All I can remember is how he was always saving me, but maybe he needed help too. Was I a bad friend?"},
-	{"character_name": "A5", "dialogue": "I have to find him, not just for [color=#b38b2b]Wonderland[/color], but because of our friendship. \n[color=#b38b2b]Piper[/color]... you were the reason why I wanted to come home. You were important enough to me. Did I ever make you forget that?"}
+	{"character_name": "A5", "dialogue": "Did I do something wrong? All I can remember is how he was\nalways saving me, but maybe he needed help too. Was I a bad\nfriend?"},
+	{"character_name": "A5", "dialogue": "I have to find him, not just for [color=#b38b2b]Wonderland[/color], but because of our\nfriendship. [color=#b38b2b]Piper[/color]... you were the reason why I wanted to come\nhome. You were important enough to me."},
+	{"character_name": "A5", "dialogue": "Did I ever make you forget that?"}
 ]

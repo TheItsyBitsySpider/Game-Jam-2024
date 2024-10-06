@@ -96,6 +96,10 @@ func start_dialogue(args: Dictionary):
 	in_dialogue = true
 	Main.puppet.animation_tree["parameters/blend_position"] = 0
 	dialogue = DialogueDatabase.create_dialogue(args["dialogue"])
+	if args["dialogue"] == "piper":
+		print("PIPER")
+		Main.world_bgm_player.stream = Main.BOSS_INTRO_BGM
+		Main.world_bgm_player.play()
 	add_child(dialogue)
 
 func end_dialogue():
@@ -130,6 +134,9 @@ func start_battle(args: Dictionary):
 	var idx = 0
 	for enemy_type in encounter:
 		var enemy = EnemyDatabase.create_enemy(enemy_type)
+		if enemy_type == "Piper":
+			Main.battle_bgm_player.stream = Main.BOSS_BGM
+			Main.battle_bgm_player.play()
 		var taken_width = idx * assumed_width
 		enemy.position.x = start_position + taken_width + assumed_width / 2
 		battle.turn_order.append(enemy)
@@ -145,6 +152,12 @@ func end_battle():
 	in_battle = false
 	
 	if battle.post_dialogue:
+		if battle.post_dialogue == "piper_defeated":
+			Main.world_bgm_player.stream = Main.WORLD_BGM
+			Main.battle_bgm_player.stream = Main.BATTLE_BGM
+			Main.world_bgm_player.play()
+			Main.world_bgm_player.play()
+			
 		start_dialogue({"dialogue": battle.post_dialogue})
 	
 	Main.world_bgm_player.fade_speed = 3

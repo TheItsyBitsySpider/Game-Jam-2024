@@ -12,7 +12,7 @@
 		},
 		{
 			"action": "start_dialogue",
-			"position": 500,
+			"position": 400,
 			"args": {
 				"dialogue": "piper"
 			}

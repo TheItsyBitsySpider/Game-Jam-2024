@@ -4,6 +4,8 @@ extends Node2D
 
 const WORLD_BGM: Resource = preload("res://resources/soundtracks/world.wav")
 const BATTLE_BGM: Resource = preload("res://resources/soundtracks/battle.wav")
+const BOSS_INTRO_BGM: Resource = preload("res://resources/soundtracks/BossIntro.wav")
+const BOSS_BGM: Resource = preload("res://resources/soundtracks/BossTheme.wav")
 
 static var INSTANCE: Main
 

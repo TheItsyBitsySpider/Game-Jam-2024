@@ -59,11 +59,9 @@ func setup(data: Dictionary):
 
 func _on_mouse_entered():
 	Player.hovered_cards.append(self)
-	print("HOVERED CARD")
 
 func _on_mouse_exited():
 	Player.hovered_cards.erase(self)
-	print("OFF CARD")
 
 func _process(delta: float):
 	var speed = SPEED * delta

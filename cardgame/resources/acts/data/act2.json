@@ -1,6 +1,6 @@
 {
 	"index": 1,
-	"background": "res://resources/environment/backgrounds/background.png",
+	"background": "res://resources/environment/backgrounds/dollhouse2bg.png",
 	"objects": [],
 	"triggers": [
 		{

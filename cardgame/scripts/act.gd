@@ -6,8 +6,6 @@ const SCENE: PackedScene = preload("res://scenes/act.tscn")
 
 const PUPPET_SPEED: int = 800
 
-@onready var background: Sprite2D = %Background
-
 var data: Dictionary
 
 var index: int:
@@ -21,7 +19,8 @@ var battle: Battle
 var in_battle: bool = false
 
 func _ready():
-	background.texture = data["background"]
+	for bg in get_tree().get_nodes_in_group("BG"):
+		bg.texture = data["background"] 
 	
 	Main.puppet.position.x = 0
 	

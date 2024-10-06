@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ltm4lbl403j"
-path="res://.godot/imported/dollhousebg.png-9cfdf525738764e1a4180ffebf36dfd9.ctex"
+uid="uid://ba61dhbcqaknp"
+path="res://.godot/imported/dollhouse2bg.png-10ed5242c096c107382836c250d5beb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/environment/backgrounds/dollhousebg.png"
-dest_files=["res://.godot/imported/dollhousebg.png-9cfdf525738764e1a4180ffebf36dfd9.ctex"]
+source_file="res://resources/environment/backgrounds/dollhouse2bg.png"
+dest_files=["res://.godot/imported/dollhouse2bg.png-10ed5242c096c107382836c250d5beb5.ctex"]
 
 [params]
 

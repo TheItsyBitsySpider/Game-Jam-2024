@@ -1,14 +1,35 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsa00db33apqs"]
 
 [ext_resource type="Script" path="res://scripts/act.gd" id="1_5vrdr"]
-[ext_resource type="Texture2D" uid="uid://du2csscc8p4v1" path="res://resources/environment/backgrounds/background.png" id="2_y6umd"]
+[ext_resource type="Texture2D" uid="uid://booakkp3yuwjg" path="res://resources/environment/backgrounds/bedroombg.png" id="2_8b07l"]
 
 [node name="Act" type="Node2D"]
 script = ExtResource("1_5vrdr")
 
-[node name="Background" type="Sprite2D" parent="."]
-unique_name_in_owner = true
+[node name="Background" type="Sprite2D" parent="." groups=["BG"]]
 z_index = -10
-position = Vector2(-287, -601)
-texture = ExtResource("2_y6umd")
+position = Vector2(-478, -514)
+scale = Vector2(1.71018, 1.85976)
+texture = ExtResource("2_8b07l")
+centered = false
+
+[node name="Background2" type="Sprite2D" parent="." groups=["BG"]]
+z_index = -10
+position = Vector2(945, -514)
+scale = Vector2(1.82875, 1.85976)
+texture = ExtResource("2_8b07l")
+centered = false
+
+[node name="Background3" type="Sprite2D" parent="." groups=["BG"]]
+z_index = -10
+position = Vector2(2580.17, -514)
+scale = Vector2(1.71018, 1.85976)
+texture = ExtResource("2_8b07l")
+centered = false
+
+[node name="Background4" type="Sprite2D" parent="." groups=["BG"]]
+z_index = -10
+position = Vector2(4109.37, -514)
+scale = Vector2(1.71018, 1.85976)
+texture = ExtResource("2_8b07l")
 centered = false

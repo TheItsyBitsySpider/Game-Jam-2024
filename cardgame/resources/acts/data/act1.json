@@ -1,6 +1,6 @@
 {
 	"index": 0,
-	"background": "res://resources/environment/backgrounds/background.png",
+	"background": "res://resources/environment/backgrounds/bedroombg.png",
 	"objects": [
 		{
 			"texture": "res://resources/characters/darling.png",

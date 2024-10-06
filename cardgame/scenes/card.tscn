@@ -22,6 +22,7 @@ offset_right = -339.0
 offset_bottom = -437.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 160
 theme_override_constants/margin_right = 100
@@ -29,11 +30,13 @@ theme_override_constants/margin_bottom = 128
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Title" type="RichTextLabel" parent="Sprite2D/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_qirgr")
 theme_override_font_sizes/normal_font_size = 81
 bbcode_enabled = true
@@ -45,6 +48,7 @@ unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 6
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_1mhcg")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true

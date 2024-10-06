@@ -62,9 +62,11 @@ func _on_slain():
 
 func _on_mouse_entered():
 	Player.hovered_enemy = self
+	print("HOVERED ENEMY")
 
 func _on_mouse_exited():
 	Player.hovered_enemy = null
+	print("OFF ENEMY")
 
 func determine_intent():
 	if random_actions:

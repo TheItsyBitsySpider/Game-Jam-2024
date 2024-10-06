@@ -116,8 +116,8 @@ func hit(damage: int):
 func _update_label():
 	title_label.text = "[center]" + alias
 	stats_label.text = '\n'.join([
-		' '.join(["HP:", str(current_health) + "/" + str(total_health)]),
-		' '.join(["Defense:", defense])])
+		' '.join(["[center][color=#b38b2b]HP:[/color]", str(current_health) + "/" + str(total_health)]),
+		' '.join(["[color=#b38b2b]Block:[/color]", defense])])
 
 func _update_status(amt: int, status, status_img: String, explanation: String):
 	if amt > 0 and status == null:

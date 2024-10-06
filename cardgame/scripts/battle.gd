@@ -101,7 +101,7 @@ func _update_discard_label():
 	discard_label.text = str(len(discard))
 
 func update_energy_label(current: int, total: int):
-	energy_label.text = ''.join(["", current, "/", total])
+	energy_label.text = ''.join(["", current])
 
 func pop_deck() -> BaseCard:
 	if not deck:

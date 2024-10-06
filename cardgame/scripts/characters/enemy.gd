@@ -11,7 +11,7 @@ const BUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "buff.png")
 const DEBUFF_INTENT_TEXTURE: Resource = preload(INTENT_DIR_PATH + "debuff.png")
 
 @onready var character: Character = $Character
-@onready var intent_sprite: Sprite2D = $UpcomingTurnSprite
+@onready var intent_sprite: TextureRect = $UpcomingTurnSprite
 @onready var intent_text: RichTextLabel = $RichTextLabel
 @onready var intent_explanation: Control = $IntentExplanation
 @onready var intent_explanation_text: RichTextLabel = $IntentExplanation/RichTextLabel2
@@ -62,11 +62,9 @@ func _on_slain():
 
 func _on_mouse_entered():
 	Player.hovered_enemy = self
-	intent_explanation.visible = true
 
 func _on_mouse_exited():
 	Player.hovered_enemy = null
-	intent_explanation.visible = false
 
 func determine_intent():
 	if random_actions:

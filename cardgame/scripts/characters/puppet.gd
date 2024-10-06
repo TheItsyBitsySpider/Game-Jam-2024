@@ -59,9 +59,7 @@ func _process(delta: float):
 	sprite.position.x = lerp(sprite.position.x, sprite_target_position, speed)
 
 func _on_slain():
-	var executable_path = OS.get_executable_path()
-	OS.execute(executable_path, [])
-	get_tree().quit()
+	pass
 
 func _on_mouse_entered():
 	Player.hovered_puppet = self
@@ -75,13 +73,16 @@ func _progress_debuffs():
 
 func ping():
 	Main.battle.end_turn_button.disabled = false
-	
+
 	character.defense = 0
 	_progress_debuffs()
 	current_energy = total_energy
 	
 	get_tree().call_group("enemy", "determine_intent")
-	
+	if character.current_health <= 0:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			Main.battle.erase_combatant(enemy)
+		return
 	for i in range(Player.draw_size):
 		await get_tree().create_timer(0.1).timeout
 		Player.draw_card()

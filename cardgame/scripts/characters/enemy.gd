@@ -86,7 +86,6 @@ func _progress_debuffs():
 
 func ping():
 	Main.battle.end_turn_button.disabled = true
-	
 	character.defense = 0
 	_progress_debuffs()
 	

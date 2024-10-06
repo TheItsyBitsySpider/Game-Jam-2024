@@ -90,3 +90,16 @@ static func next_act(_args: Dictionary):
 	puppet.reparent(act)
 	
 	in_transition = false
+
+static func death_screen():
+	in_transition = true
+	
+	puppet.character.current_health = puppet.character.total_health
+	
+	var index = act.index
+	act.queue_free()
+	act = ActDatabase.create_act(index)
+	INSTANCE.add_child(act)
+	puppet.reparent(act)
+	
+	in_transition = false

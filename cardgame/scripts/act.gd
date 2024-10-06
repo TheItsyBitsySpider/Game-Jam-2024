@@ -150,8 +150,11 @@ func start_battle(args: Dictionary):
 func end_battle():
 	in_battle = false
 	
+	if Main.puppet.character.current_health <= 0:
+		Main.death_screen()
+	
 	if battle.post_dialogue:
-		if battle.post_dialogue == "piper_defeated":
+		if battle.post_dialogue == "piper_defeated" and not Main.puppet.character.current_health <= 0:
 			Main.world_bgm_player.stream = Main.WORLD_BGM
 			Main.battle_bgm_player.stream = Main.BATTLE_BGM
 			Main.world_bgm_player.play()
